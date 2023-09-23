@@ -7,6 +7,11 @@
             height: 100px;
         }
 
+        #product1 {
+            width: 500px;
+            height: 500px;
+        }
+        
     </style>
 </head>
 <body>
