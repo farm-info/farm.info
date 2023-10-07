@@ -80,6 +80,7 @@
     
     <section id="product-list">
         
+    <div>
         <div class="product1">
             <a href="https://shopee.com.my/Premium-Seeds-50-150-Biji-Benih-Cabbage-kobis-F1-jenis-besar-dan-tahan-cuaca-panas-benih-dari-Jepun-i.112981817.8640434694?sp_atk=ae025150-9ae8-4896-a622-1f1f4527e92a&xptdk=ae025150-9ae8-4896-a622-1f1f4527e92a" target="_blank">
                 <img src="product1.jpeg" alt="Product 1" id="product1" class="product-image">
@@ -88,13 +89,14 @@
                 <p id="decproduct2">very nice
                 
                 </p>
-            </a> 
+            </a>
         </div>
-        
+    </div>
+    
         <div class="product2">
             <a href= "https://shopee.com.my/Benih-Lobak-Merah-100pcs-Carrot-Seed-%E7%BA%A2%E8%90%9D%E5%8D%9C%E8%8F%9C%E7%B1%BD-i.24498515.6763749393?sp_atk=198e1d56-ff62-4e77-8860-51724bca5878&xptdk=198e1d56-ff62-4e77-8860-51724bca5878" target="_blank">
                 <img src="product2.jpeg" alt="Product 2" id="product2">
-                <span id="decproduct">Benih Lobak 100 Batang</span>   
+                <span id="decproduct">Benih Lobak 100 Batang</span>
             </a>
         </div>
 
