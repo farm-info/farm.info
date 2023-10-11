@@ -62,13 +62,7 @@
             justify-content: center;
         }
 
-        .box {
-            width: 300px;
-            height: 200px;
-            margin: 10px;
-            background-color: blue;
-            float: left;
-        }
+        
 
     </style>
 </head>
