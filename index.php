@@ -94,40 +94,6 @@
     
     <section id="product-list">
         
-    <div>
-        <div class="product1">
-            <a href="https://shopee.com.my/Premium-Seeds-50-150-Biji-Benih-Cabbage-kobis-F1-jenis-besar-dan-tahan-cuaca-panas-benih-dari-Jepun-i.112981817.8640434694?sp_atk=ae025150-9ae8-4896-a622-1f1f4527e92a&xptdk=ae025150-9ae8-4896-a622-1f1f4527e92a" target="_blank">
-                <img src="product1.jpeg" alt="Product 1" id="product1" class="product-image">
-                <h2 id="decproduct">King Cabbage F1GUTJI </h2>
-                <p id="decproduct2">This is cabage from malaysia</p>
-                <p id="decproduct2">very nice
-                
-    </p>
-                
-            </a>
-        </div>
-    </div>
-
-        <div class="product2">
-            <a href= "https://shopee.com.my/Benih-Lobak-Merah-100pcs-Carrot-Seed-%E7%BA%A2%E8%90%9D%E5%8D%9C%E8%8F%9C%E7%B1%BD-i.24498515.6763749393?sp_atk=198e1d56-ff62-4e77-8860-51724bca5878&xptdk=198e1d56-ff62-4e77-8860-51724bca5878" target="_blank">
-                <img src="product2.jpeg" alt="Product 2" id="product2">
-                <span id="decproduct">Benih Lobak 100 Batang</span>
-            </a>
-        </div>
-
-        <div class="product3">
-            <a href="https://shopee.com.my/Benih-Lobak-Putih-Local(cepat-besar)-20pcs-Radish-%E6%9C%AC%E5%9C%B0%E7%99%BD%E8%90%9D%E5%8D%9C%E7%B1%BD-i.24498515.19070812425?sp_atk=e0988f87-36d8-47b5-aaa1-3dfaf5211325&xptdk=e0988f87-36d8-47b5-aaa1-3dfaf5211325" target="_blank">
-                <img src="product3.jpeg" alt="Product 3" id="product3">
-                <span id="decproduct">Benih Lobak Putih Local</span>
-            </a>
-        </div>
-
-        <div class="product2">
-            <a href="https://shopee.com.my/Benih-Sayur-Broccoli-20pcs-%E8%A5%BF%E5%85%B0%E8%8A%B1%E7%A7%8D%E5%AD%90-i.24498515.7263456715?sp_atk=08508b90-ec86-464d-a213-2deb763ef595&xptdk=08508b90-ec86-464d-a213-2deb763ef595" target="_blank">
-                <img src="product4.jpeg" alt="Product 4" id="product4">
-                <span id="decproduct">Benih Sayur Broccoli</span>
-            </a>
-        </div>
         
     </section>
     
