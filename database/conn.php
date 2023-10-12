@@ -1,4 +1,4 @@
 <?php
-$con = mysqli_connect("localhost", "root", "", "wdt asg");
+$con = mysqli_connect("localhost", "root", "", "farm_info");
 ?>
 
