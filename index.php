@@ -64,6 +64,7 @@
     </header>
 
     <div id="button_cont1">
+        <button onclick="sell()">Sell?</button>
         <button onclick="goToCart()">Go to Cart</button>
         <button onclick="showLogin()">Login</button>
         <button onclick="showRegister()">Register</button>
@@ -97,7 +98,7 @@
 
             echo '<h3>'.$row["product_name"].'</h3>';
             echo '<div class="contact_details">'.$row["productID"].'</div>';
-            echo '<div class="contact_details"><a href="mailto:'.$row["seller_name"].'">'.$row["sellerID"].'</a></div>';
+            echo '<div class="contact_details"><a href="mailto:'.$row["sellerID"].'">'.$row["sellerID"].'</a></div>';
             echo '<div class="contact_details">'.$row["product_category"].'</div>';
             echo '<div class="contact_details">'.$row["product_description"].'</div>';
             echo '<div class="contact_details">'.$row["product_price"].'</div>';
