@@ -126,6 +126,11 @@
             window.location.href = "cart.html";
         }
 
+        function sell() {
+            // Redirect to the cart page
+            window.location.href = "cart.html";
+        }
+
         function showLogin() {
             // Code to display the login form or navigate to the login page
             // For demonstration purposes, we'll show an alert here.
