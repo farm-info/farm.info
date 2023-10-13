@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+$loggedIn = isset($_SESSION['customerID']);
+
+// If the user is not logged in, redirect to the login page
+if (!$loggedIn) {
+    header("Location: login.php"); // Replace "login.php" with the actual login page URL
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,8 +79,12 @@
     <div id="button_cont1">
         <button onclick="sell()">Sell?</button>
         <button onclick="goToCart()">Go to Cart</button>
+        <?php if(!$loggedIn){?>
         <button onclick="showLogin()">Login</button>
         <button onclick="showRegister()">Register</button>
+        <?php } else {?>
+            <button onclick="logout()">Logout</button>
+        <?php }?>
     </div>
     
     <section id="product-list">
@@ -121,6 +138,11 @@
 
 
     <script>
+        function logout() {
+            // Redirect to the logout page or perform logout actions
+            // For demonstration purposes, we'll simply clear the session and redirect to the homepage.
+            window.location.href = "logout.php";
+        } 
         function goToCart() {
             // Redirect to the cart page
             window.location.href = "cart.php";
@@ -134,13 +156,13 @@
         function showLogin() {
             // Code to display the login form or navigate to the login page
             // For demonstration purposes, we'll show an alert here.
-            window.location.href = "sellerinsert.php";
+            window.location.href = "login.php";
         }
 
         function showRegister() {
             // Code to display the registration form or navigate to the registration page
             // For demonstration purposes, we'll show an alert here.
-            window.location.href = "register.php";
+            window.location.href = "customerregister.php";
         }
 
         function aboutus() {
