@@ -2,7 +2,7 @@
 
     include("conn.php");
 
-    $sql = "UPDATE contacts SET 
+    $sql = "UPDATE seller SET 
     productID='$_POST[contact_name]', 
     sellerID='$_POST[contact_phone]',
     contact_email='$_POST[contact_email]',

@@ -9,7 +9,7 @@ if (!mysqli_query($con,$sql))
     die("Error: ".mysqli_error($con));
 }
 else {
-    echo "<script>alert('1 record added!');window.location.href='view.php';</script>";
+    echo "<script>alert('1 record added!');window.location.href='sellerview.php';</script>";
 }
 
 ?>
