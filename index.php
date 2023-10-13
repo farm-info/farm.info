@@ -140,7 +140,7 @@
         function showRegister() {
             // Code to display the registration form or navigate to the registration page
             // For demonstration purposes, we'll show an alert here.
-            alert("Display the registration form or navigate to the registration page.");
+            window.location.href = "register.php";
         }
 
         function aboutus() {
