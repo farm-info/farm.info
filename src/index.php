@@ -94,7 +94,7 @@ if (!$loggedIn) {
 
 
     <?php
-    include("database/conn.php");
+    include("../database/conn.php");
     for ($x = 0; $x < 0; $x++) {
         ?>
 
@@ -275,7 +275,7 @@ if (!$loggedIn) {
 
 
     <?php
-    include("database/conn.php");
+    include("../database/conn.php");
     for ($x = 0; $x < 0; $x++) {
         ?>
 

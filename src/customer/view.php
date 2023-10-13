@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id'])) {
     </form>
     <br>
     <?php
-    include("database/conn.php");
+    include("../database/conn.php");
     $search_key = "";
 
     if (isset($_POST['search'])) {
