@@ -29,7 +29,7 @@
         $result = mysqli_query($con,$sql);
         $row = mysqli_fetch_array($result);
         $rowcount = mysqli_num_rows($result);
-
+        //hello tryail
         if ($rowcount == 1){ //if there is a record match
             session_start();
             $_SESSION['customerID'] = $row['customerID']; //assign a session so all the login will be based on account that currently login
