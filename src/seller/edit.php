@@ -49,13 +49,13 @@
         <h1>My Address Book</h1>
         <h2>Edit Contact</h2>
         <?php
-        include("conn.php");
+        include("database/conn.php");
         $id = intval($_GET['id']);
         $sql = "SELECT * FROM contacts WHERE id=$id";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             ?>
-            <form method="post" action="sellerupdate.php">
+            <form method="post" action="update.php">
                 <input type="hidden" name="sellerID" value="<?php echo $row['sellerID']; ?>">
                 <label>Name</label><br>
                 <input type="text" name="seller_name" required value="<?php echo $row['contact_name']; ?>"><br><br>
@@ -68,8 +68,6 @@
 
                 <button>Submit</button>
                 <button type="reset">Reset</button>
-
-
 
             </form>
             <?php

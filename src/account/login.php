@@ -22,20 +22,19 @@
     </form>
 
     <?php
-    if (isset($_POST['loginBtn'])){
-        include("conn.php");
+    if (isset($_POST['loginBtn'])) {
+        include("database/conn.php");
         $sql = "SELECT * FROM customer WHERE customer_email='$_POST[customer_email]' AND customer_password='$_POST[customer_password]'";
 
-        $result = mysqli_query($con,$sql);
+        $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
         $rowcount = mysqli_num_rows($result);
         //hello tryail
-        if ($rowcount == 1){ //if there is a record match
+        if ($rowcount == 1) { //if there is a record match
             session_start();
             $_SESSION['customerID'] = $row['customerID']; //assign a session so all the login will be based on account that currently login
             header("location:index.php");
-        }
-        else {
+        } else {
             echo "<script>alert('Email or Password not correct!');</script>";
         }
     }

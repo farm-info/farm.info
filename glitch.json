@@ -1,4 +1,4 @@
 {
     "install": "echo 'We Are Ready!'",
-    "start": "php -S 0.0.0.0:3000 -t ."
+    "start": "php -S 0.0.0.0:3000 -t ./src"
 }

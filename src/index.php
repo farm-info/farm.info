@@ -13,6 +13,7 @@ if (!$loggedIn) {
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <link href="style.css" rel="stylesheet">
     <title>Farm.info</title>
@@ -57,15 +58,13 @@ if (!$loggedIn) {
             align-items: center;
             justify-content: center;
         }
-
-
-
     </style>
 
 </head>
+
 <body>
 
-<header>
+    <header>
         <div id="logo-container">
 
             <img src="logo.png" alt="Marketplace Logo" id="logo">
@@ -73,18 +72,18 @@ if (!$loggedIn) {
 
 
         </div><br>
-            <button onclick="aboutus()">About Us</button>
+        <button onclick="aboutus()">About Us</button>
     </header>
 
     <div id="button_cont1">
         <button onclick="sell()">Sell?</button>
         <button onclick="goToCart()">Go to Cart</button>
-        <?php if(!$loggedIn){?>
-        <button onclick="showLogin()">Login</button>
-        <button onclick="showRegister()">Register</button>
-        <?php } else {?>
+        <?php if (!$loggedIn) { ?>
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showRegister()">Register</button>
+        <?php } else { ?>
             <button onclick="logout()">Logout</button>
-        <?php }?>
+        <?php } ?>
     </div>
 
     <section id="product-list">
@@ -95,42 +94,40 @@ if (!$loggedIn) {
 
 
     <?php
-        include("conn.php");
-        for ($x=0;$x<0;$x++)
-            {
-    ?>
+    include("database/conn.php");
+    for ($x = 0; $x < 0; $x++) {
+        ?>
 
         <div class="box">
 
         </div>
 
         <?php
-        }
-        $sql = "SELECT * FROM item";
-        $result = mysqli_query($con,$sql);
-        while ($row = mysqli_fetch_array($result))
-        {
-            echo '<div id="box">';
+    }
+    $sql = "SELECT * FROM item";
+    $result = mysqli_query($con, $sql);
+    while ($row = mysqli_fetch_array($result)) {
+        echo '<div id="box">';
 
 
-            echo '<h3>'.$row["product_name"].'</h3>';
-            echo '<div class="contact_details">'.$row["productID"].'</div>';
-            echo '<div class="contact_details"><a href="mailto:'.$row["sellerID"].'">'.$row["sellerID"].'</a></div>';
-            echo '<div class="contact_details">'.$row["product_category"].'</div>';
-            echo '<div class="contact_details">'.$row["product_description"].'</div>';
-            echo '<div class="contact_details">'.$row["product_price"].'</div>';
-            echo '<div class="contact_details">'.$row["stock_quantity"].'</div>';
-            echo '<div class="contact_details">'.$row["product_rating"].'</div>';
-            echo '<div class="contact_details">'.$row["product_views"].'</div>';
+        echo '<h3>' . $row["product_name"] . '</h3>';
+        echo '<div class="contact_details">' . $row["productID"] . '</div>';
+        echo '<div class="contact_details"><a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
+        echo '<div class="contact_details">' . $row["product_category"] . '</div>';
+        echo '<div class="contact_details">' . $row["product_description"] . '</div>';
+        echo '<div class="contact_details">' . $row["product_price"] . '</div>';
+        echo '<div class="contact_details">' . $row["stock_quantity"] . '</div>';
+        echo '<div class="contact_details">' . $row["product_rating"] . '</div>';
+        echo '<div class="contact_details">' . $row["product_views"] . '</div>';
 
-            echo '<br>';
+        echo '<br>';
 
-            echo '<a class="button" href="edit.php?id='.$row["productID"].'" id="edit">Edit</a>';
+        echo '<a class="button" href="edit.php?id=' . $row["productID"] . '" id="edit">Edit</a>';
 
-            echo '<a class="button" href="delete.php?id='.$row["product_category"].'" onclick="return confirm(\'Delete '.$row["product_category"].' record?\');" id="delete">Delete</a>';
+        echo '<a class="button" href="delete.php?id=' . $row["product_category"] . '" onclick="return confirm(\'Delete ' . $row["product_category"] . ' record?\');" id="delete">Delete</a>';
 
-            echo '</div>';
-        }
+        echo '</div>';
+    }
     ?>
 
 
@@ -172,8 +169,8 @@ if (!$loggedIn) {
         // JavaScript to handle clicking on product images and descriptions
         var products = document.querySelectorAll(".product");
 
-        products.forEach(function(product) {
-            product.addEventListener("click", function() {
+        products.forEach(function (product) {
+            product.addEventListener("click", function () {
                 // Handle the click on a product, for example, navigate to the product details page.
                 // For demonstration purposes, we'll show an alert here.
                 alert("Product clicked. Redirect to product details page.");
@@ -181,6 +178,7 @@ if (!$loggedIn) {
         });
     </script>
 </body>
+
 </html>
 <?php
 session_start();
@@ -277,7 +275,7 @@ if (!$loggedIn) {
 
 
     <?php
-    include("conn.php");
+    include("database/conn.php");
     for ($x = 0; $x < 0; $x++) {
         ?>
 
