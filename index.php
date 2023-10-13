@@ -123,18 +123,18 @@
     <script>
         function goToCart() {
             // Redirect to the cart page
-            window.location.href = "cart.html";
+            window.location.href = "cart.php";
         }
 
         function sell() {
             // Redirect to the cart page
-            window.location.href = "cart.html";
+            window.location.href = "cart.php";
         }
 
         function showLogin() {
             // Code to display the login form or navigate to the login page
             // For demonstration purposes, we'll show an alert here.
-            alert("Display the login form or navigate to the login page.");
+            window.location.href = "sellerinsert.php";
         }
 
         function showRegister() {
