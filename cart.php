@@ -1,4 +1,7 @@
-<?php $title = 'Cart';
+<?php
+include("database/conn.php");
+$result = mysqli_query($con, "SELECT * FROM  cart");
+$title = 'Cart';
 include("template/top.php");
 ?>
 
@@ -27,16 +30,46 @@ include("template/top.php");
             </thead>
 
             <tbody>
-                <tr>
-                    <td><input type="checkbox" name="select-item" id="select_item_1"
-                            onchange="updateSelectAllCheckbox()"></td>
-                    <td><img src="images/img_nature.jpg" alt="Nature"></td>
-                    <td>Product name</td>
-                    <td>RM49.90</td>
-                    <td>Seller name</td>
-                    <td>2</td>
-                    <td>RM99.80</td>
-                </tr>
+
+                <?php
+                if (mysqli_num_rows($result) == 0) { ?>
+                    <tr>
+                        <td colspan="7">Your cart is empty</td>
+                    </tr>
+                <?php } ?>
+
+                <?php
+                while ($row = mysqli_fetch_array($result)) { ?>
+                    <tr>
+                        <td><input type="checkbox" name="select-item" id="select_item_1"
+                                onchange="updateSelectAllCheckbox()"></td>
+                        <td><img src="images/img_nature.jpg" alt="Nature"></td>
+
+                        <?php
+                        echo "<td>";
+                        echo $row['product_name'];
+                        echo "</td>";
+
+                        echo "<td>RM";
+                        echo $row['product_price'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $row['seller_name'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $row['quantity'];
+                        echo "</td>";
+
+                        echo "<td>";
+                        echo $row['product_price'];
+                        echo "</td>";
+                        ?>
+
+                    </tr>
+                <?php } ?>
+
                 <tr>
                     <td><input type="checkbox" name="select-item" id="select_item_1"
                             onchange="updateSelectAllCheckbox()"></td>
