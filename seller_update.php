@@ -1,9 +1,9 @@
 <?php
 
-    include("conn.php");
+include("conn.php");
 
-    $sql = "UPDATE seller SET 
-    productID='$_POST[contact_name]', 
+$sql = "UPDATE seller SET
+    productID='$_POST[contact_name]',
     sellerID='$_POST[contact_phone]',
     contact_email='$_POST[contact_email]',
     contact_address='$_POST[contact_address]',
@@ -14,8 +14,9 @@
     id=$_POST[id]
     ";
 
-    mysqli_query($con,$sql);
+mysqli_query($con, $sql);
 
-    header("location:view.php");
+header("location:view.php");
 
 ?>
+

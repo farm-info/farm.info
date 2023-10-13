@@ -49,31 +49,31 @@
         <h1>My Address Book</h1>
         <h2>Edit Contact</h2>
         <?php
-            include("conn.php");
-            $id = intval($_GET['id']);
-            $sql = "SELECT * FROM contacts WHERE id=$id";
-            $result = mysqli_query($con,$sql);
-            while ($row = mysqli_fetch_array($result)){
-        ?>
-        <form method="post" action="sellerupdate.php">
-            <input type="hidden" name="sellerID" value="<?php echo $row['sellerID']; ?>">
-            <label>Name</label><br>
-            <input type="text" name="seller_name" required value="<?php echo $row['contact_name']; ?>"><br><br>
+        include("conn.php");
+        $id = intval($_GET['id']);
+        $sql = "SELECT * FROM contacts WHERE id=$id";
+        $result = mysqli_query($con, $sql);
+        while ($row = mysqli_fetch_array($result)) {
+            ?>
+            <form method="post" action="sellerupdate.php">
+                <input type="hidden" name="sellerID" value="<?php echo $row['sellerID']; ?>">
+                <label>Name</label><br>
+                <input type="text" name="seller_name" required value="<?php echo $row['contact_name']; ?>"><br><br>
 
-            <label>Phone Number</label><br>
-            <input type="tel" name="seller_phonenumber" required value="<?php echo $row['contact_phone']; ?>"><br><br>
+                <label>Phone Number</label><br>
+                <input type="tel" name="seller_phonenumber" required value="<?php echo $row['contact_phone']; ?>"><br><br>
 
-            <label>Home Address</label><br>
-            <textarea name="seller_address" required><?php echo $row['contact_address'] ?></textarea><br><br>
+                <label>Home Address</label><br>
+                <textarea name="seller_address" required><?php echo $row['contact_address'] ?></textarea><br><br>
 
-            <button>Submit</button>
-            <button type="reset">Reset</button>
+                <button>Submit</button>
+                <button type="reset">Reset</button>
 
 
 
-        </form>
-        <?php
-            }
+            </form>
+            <?php
+        }
         ?>
     </div>
 </body>

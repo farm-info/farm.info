@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link href="style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <style>
         input[type=text],
         input[type=email],
@@ -72,6 +73,7 @@
             <button>Submit</button>
             <button type="reset">Reset</button>
 
-            <a href="sellerregister.php">Register as Seller!!</a>
+            <a href="seller_register.php">Register as Seller!!</a>
 </body>
+
 </html>
