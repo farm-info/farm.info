@@ -7,7 +7,7 @@
     <title>
         <?php echo $title ?> | Farm.info
     </title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file for styling -->
+    <link rel="stylesheet" href="../src/style.css"> <!-- Link to your CSS file for styling -->
 </head>
 
 <body>

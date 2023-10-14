@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login as Seller</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
         }
     }
     ?>
-    
+
     <a href="../seller/register.php">Dont have an account? Register.</a>
 </body>
 

@@ -93,7 +93,7 @@ $loggedIn = isset($_SESSION['customerID']);
         ?>
 
         <div class="box">
-        <a class="box" href="Music.html"></a>
+            <a class="box" href="Music.html"></a>
         </div>
 
         <?php
