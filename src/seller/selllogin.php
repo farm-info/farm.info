@@ -25,7 +25,7 @@
     if (isset($_POST['loginBtn'])) {
         // Modify the include statement to use an absolute path
         include("../../database/conn.php");
-        $sql = "SELECT * FROM customer WHERE customer_email='$_POST[customer_email]' AND customer_password='$_POST[customer_password]'";
+        $sql = "SELECT * FROM seller WHERE seller_email='$_POST[seller_email]' AND seller_password='$_POST[seller_password]'";
 
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
@@ -33,7 +33,7 @@
 
         if ($rowcount == 1) {
             session_start();
-            $_SESSION['customerID'] = $row['customerID'];
+            $_SESSION['sellerID'] = $row['sellerID'];
             // Use an absolute URL to redirect to index.php
             header("Location: ../index.php");
             exit();
@@ -42,9 +42,8 @@
         }
     }
     ?>
-    <a href="../customer/register.php">Dont have an account? Register Here.</a>
-    <br>or</br>
-    <a href="../seller/register.php">Login as seller.</a>
+    
+    <a href="../seller/selllogin.php">already have an account? Login.</a>
 </body>
 
 </html>
