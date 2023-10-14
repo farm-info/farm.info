@@ -94,7 +94,7 @@ if (!$loggedIn) {
 
 
     <?php
-    include("../database/conn.php");
+    include("C:/wamp64/www/farm.info/farm.info/database/conn.php");
     for ($x = 0; $x < 0; $x++) {
         ?>
 
@@ -102,7 +102,7 @@ if (!$loggedIn) {
 
         </div>
 
-        <?php
+    <?php
     }
     $sql = "SELECT * FROM item";
     $result = mysqli_query($con, $sql);
@@ -144,7 +144,7 @@ if (!$loggedIn) {
         }
 
         function sell() {
-            // Redirect to the cart page
+            
             window.location.href = "cart.php";
         }
 
