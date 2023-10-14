@@ -1,5 +1,5 @@
 <?php
-include("../database/conn.php");
+include("C:/wamp64/www/farm.info/farm.info/database/conn.php");
 $result = mysqli_query($con, "SELECT * FROM  cart");
 $title = 'Cart';
 include("../template/top.php");
