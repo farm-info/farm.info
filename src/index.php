@@ -136,7 +136,7 @@ if (!$loggedIn) {
 
     <script>
         function logout() {
-            window.location.href = "/src/account/logout.php";
+            window.location.href = "/farm.info/src/account/logout.php";
         }
         
         function goToCart() {
