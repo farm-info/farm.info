@@ -4,21 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login as Seller</title>
     <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-    <h3>Login</h3>
+    <h3>Login as Seller</h3>
 
     <form method="post">
         Email:<br>
-        <input type="email" name="customer_email"><br><br>
+        <input type="email" name="seller_email"><br><br>
 
         Password:<br>
-        <input type="password" name="customer_password"><br><br>
+        <input type="password" name="SellerPassword"><br><br>
 
-        <button name="loginBtn">Login</button>
+        <button name="loginBtn">Login as Seller</button>
     </form>
 
     <?php
@@ -43,7 +43,7 @@
     }
     ?>
     
-    <a href="../seller/selllogin.php">already have an account? Login.</a>
+    <a href="../seller/register.php">Dont have an account? Register.</a>
 </body>
 
 </html>
