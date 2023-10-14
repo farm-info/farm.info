@@ -3,14 +3,8 @@ session_start();
 
 // Check if the user is logged in
 $loggedIn = isset($_SESSION['customerID']);
-
-// If the user is not logged in, redirect to the local login page
-if (!$loggedIn) {
-    header("Location: ./account/login.php");
-    exit();
-}
 ?>
-//hello
+
 <!DOCTYPE html>
 <html>
 
