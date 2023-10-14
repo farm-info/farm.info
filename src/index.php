@@ -4,9 +4,9 @@ session_start();
 // Check if the user is logged in
 $loggedIn = isset($_SESSION['customerID']);
 
-// If the user is not logged in, redirect to the login page
+// If the user is not logged in, redirect to the local login page
 if (!$loggedIn) {
-    header("Location: login.php"); // Replace "login.php" with the actual login page URL
+    header("Location: http://localhost/farm.info/farm.info/src/account/login.php");
     exit();
 }
 ?>
