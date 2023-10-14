@@ -6,7 +6,7 @@ $loggedIn = isset($_SESSION['customerID']);
 
 // If the user is not logged in, redirect to the local login page
 if (!$loggedIn) {
-    header("Location: http://localhost/farm.info/farm.info/src/account/login.php");
+    header("Location: ./account/login.php");
     exit();
 }
 ?>
@@ -136,11 +136,11 @@ if (!$loggedIn) {
 
     <script>
         function logout() {
-            window.location.href = "/farm.info/farm.info/src/account/logout.php";
+            window.location.href = "./account/logout.php";
         }
         
         function goToCart() {
-            window.location.href = "/farm.info/farm.info/src/product/cart.php";
+            window.location.href = "./product/cart.php";
         }
 
         function sell() {
