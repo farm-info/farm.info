@@ -46,8 +46,8 @@
 
 <body>
     <div id="wrapper">
-        <h1>Register as customer</h1>
-        <form method="post" action="sellinsert.php">
+        <h1>Register as seller</h1>
+        <form method="post" action="insert.php">
 
             <label>SellerID</label><br>
             <input type="text" name="sellerID" required><br><br>

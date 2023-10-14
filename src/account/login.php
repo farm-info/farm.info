@@ -43,7 +43,7 @@
     ?>
     <a href="../customer/register.php">Dont have an account? Register Here.</a>
     <br>or</br>
-    <a href="../seller/selllogin.php">Login as seller.</a>
+    <a href="../seller/login.php">Login as seller.</a>
 </body>
 
 </html>
