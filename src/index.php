@@ -3,12 +3,6 @@ session_start();
 
 // Check if the user is logged in
 $loggedIn = isset($_SESSION['customerID']);
-
-// If the user is not logged in, redirect to the local login page
-if (!$loggedIn) {
-    header("Location: ./account/login.php");
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -102,7 +96,7 @@ if (!$loggedIn) {
         <a class="box" href="Music.html"></a>
         </div>
 
-    <?php
+        <?php
     }
     $sql = "SELECT * FROM item";
     $result = mysqli_query($con, $sql);
@@ -136,28 +130,27 @@ if (!$loggedIn) {
 
     <script>
         function logout() {
-            window.location.href = "./account/logout.php";
+            window.location.href = "account/logout.php";
         }
-        
+
         function goToCart() {
-            window.location.href = "./product/cart.php";
+            window.location.href = "product/cart.php";
         }
 
         function sell() {
-            
             window.location.href = "cart.php";
         }
 
         function showLogin() {
             // Code to display the login form or navigate to the login page
             // For demonstration purposes, we'll show an alert here.
-            window.location.href = "login.php";
+            window.location.href = "account/login.php";
         }
 
         function showRegister() {
             // Code to display the registration form or navigate to the registration page
             // For demonstration purposes, we'll show an alert here.
-            window.location.href = "customerregister.php";
+            window.location.href = "customer/register.php";
         }
 
         function aboutus() {
@@ -178,5 +171,3 @@ if (!$loggedIn) {
 </body>
 
 </html>
-
-

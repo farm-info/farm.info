@@ -34,7 +34,6 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['customerID'] = $row['customerID'];
-            // Use an absolute URL to redirect to index.php
             header("Location: ../index.php");
             exit();
         } else {
