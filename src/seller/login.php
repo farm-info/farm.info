@@ -4,28 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login as Seller</title>
     <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-    <h3>Login</h3>
+    <h3>Login as Seller</h3>
 
     <form method="post">
         Email:<br>
-        <input type="email" name="customer_email"><br><br>
+        <input type="email" name="seller_email"><br><br>
 
         Password:<br>
-        <input type="password" name="customer_password"><br><br>
+        <input type="password" name="SellerPassword"><br><br>
 
-        <button name="loginBtn">Login</button>
+        <button name="loginBtn">Login as Seller</button>
     </form>
 
     <?php
     if (isset($_POST['loginBtn'])) {
         // Modify the include statement to use an absolute path
         include("../../database/conn.php");
-        $sql = "SELECT * FROM customer WHERE customer_email='$_POST[customer_email]' AND customer_password='$_POST[customer_password]'";
+        $sql = "SELECT * FROM seller WHERE seller_email='$_POST[seller_email]' AND seller_password='$_POST[seller_password]'";
 
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
@@ -33,7 +33,8 @@
 
         if ($rowcount == 1) {
             session_start();
-            $_SESSION['customerID'] = $row['customerID'];
+            $_SESSION['sellerID'] = $row['sellerID'];
+            // Use an absolute URL to redirect to index.php
             header("Location: ../index.php");
             exit();
         } else {
@@ -41,9 +42,8 @@
         }
     }
     ?>
-    <a href="../customer/register.php">Dont have an account? Register Here.</a>
-    <br>or</br>
-    <a href="../seller/login.php">Login as seller.</a>
+    
+    <a href="../seller/register.php">Dont have an account? Register.</a>
 </body>
 
 </html>

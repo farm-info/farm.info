@@ -47,7 +47,7 @@
 <body>
     <div id="wrapper">
         <h1>Register as customer</h1>
-        <form method="post" action="customerinsert.php">
+        <form method="post" action="insert.php">
 
             <label>CustomerID</label><br>
             <input type="text" name="customerID" required><br><br>
@@ -73,7 +73,7 @@
             <button>Submit</button>
             <button type="reset">Reset</button>
 
-            <a href="seller_register.php">Register as Seller!!</a>
+            
 </body>
 
 </html>

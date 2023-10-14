@@ -61,7 +61,7 @@ $loggedIn = isset($_SESSION['customerID']);
     <header>
         <div id="logo-container">
 
-            <img src="logo.png" alt="Marketplace Logo" id="logo">
+            <img src="../images/logo.png" alt="Marketplace Logo" id="logo">
             <span id="logo-text">Farm.Info</span>
 
 
@@ -93,7 +93,7 @@ $loggedIn = isset($_SESSION['customerID']);
         ?>
 
         <div class="box">
-
+        <a class="box" href="Music.html"></a>
         </div>
 
         <?php
@@ -105,18 +105,18 @@ $loggedIn = isset($_SESSION['customerID']);
 
 
         echo '<h3>' . $row["product_name"] . '</h3>';
-        echo '<div class="contact_details">' . $row["productID"] . '</div>';
-        echo '<div class="contact_details"><a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
-        echo '<div class="contact_details">' . $row["product_category"] . '</div>';
-        echo '<div class="contact_details">' . $row["product_description"] . '</div>';
-        echo '<div class="contact_details">' . $row["product_price"] . '</div>';
-        echo '<div class="contact_details">' . $row["stock_quantity"] . '</div>';
-        echo '<div class="contact_details">' . $row["product_rating"] . '</div>';
-        echo '<div class="contact_details">' . $row["product_views"] . '</div>';
+        echo '<div class="contact_details">ProductID: ' . $row["productID"] . '</div>';
+        echo '<div class="contact_details">SellerID: <a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
+        echo '<div class="contact_details">Category: ' . $row["product_category"] . '</div>';
+        echo '<div class="contact_details">Description: ' . $row["product_description"] . '</div>';
+        echo '<div class="contact_details">Price: RM' . $row["product_price"] . '</div>';
+        echo '<div class="contact_details">Amount Left: ' . $row["stock_quantity"] . '</div>';
+        echo '<div class="contact_details">Ratings: ' . $row["product_rating"] . '</div>';
+        echo '<div class="contact_details">Views: ' . $row["product_views"] . '</div>';
 
         echo '<br>';
 
-        echo '<a class="button" href="edit.php?id=' . $row["productID"] . '" id="edit">Edit</a>';
+        echo '<a class="button" href="./seller/edit.php?id=' . $row["productID"] . '" id="edit">Add to cart</a>';
 
         echo '<a class="button" href="delete.php?id=' . $row["product_category"] . '" onclick="return confirm(\'Delete ' . $row["product_category"] . ' record?\');" id="delete">Delete</a>';
 

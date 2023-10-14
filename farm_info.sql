@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 13, 2023 at 07:26 AM
+-- Generation Time: Oct 14, 2023 at 12:38 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -79,7 +79,10 @@ CREATE TABLE IF NOT EXISTS `customer` (
 INSERT INTO `customer` (`customerID`, `customer_name`, `customer_username`, `customer_email`, `customer_phonenumber`, `customer_password`, `customer_address`) VALUES
 ('C0001', 'Keith', 'PotatoOni', 'darkenbrine@mailmy', '0312649877', '1234567890', 'somewhere somehow'),
 ('C0002', 'jazz', 'JIzzwitsing', 'jiz@mail.com', '12345654321', '1234567890', 'maybe no where'),
-('C0003', 'jazz11', 'JIzzwitsingsas', 'jiz@mail.comasd', '123456543214234', '12345678909876', 'maybe no where sad');
+('C0003', 'jazz11', 'JIzzwitsingsas', 'jiz@mail.comasd', '123456543214234', '12345678909876', 'maybe no where sad'),
+('C00536', 'Shane', 'I Like Loli', 'Lolicon@mail.com', '0312649877', '1234567890', 'Shourai '),
+('C023233', 'Shaneqqq', 'I Like Loliqqq', 'Lolicon@mail.comqqq', '03126498775778', '1234567890', 'Shourai lolicon'),
+('C124321', 'David', 'I like cars', 'David@gay.com', '98654321', '1234567890', 'David is gay for cars');
 
 -- --------------------------------------------------------
 
@@ -112,7 +115,8 @@ INSERT INTO `item` (`productID`, `product_name`, `sellerID`, `product_category`,
 ('p0003', 'Fretilizer', 'S0001', 'Chemicals', 'Chemical Fertilizer', '50', 200, '7/10', 100),
 ('p0004', 'Cabbage', 'S0002', '. Seed', 'Cabbage seeds ', '60', 500, '5/10', 250),
 ('p0005', 'Long Beans', 'S0003', 'Seeds', '300g Long beans', '5', 300, '7/10', 100),
-('p00056', 'Rake', 'S0003', 'tools', 'Rake for farming', '75', 200, '7/10', 100);
+('p00056', 'Rake', 'S0003', 'tools', 'Rake for farming', '75', 200, '7/10', 100),
+('p00918', 'Random tester', 'S0004', 'tools', 'this is a placeholder tester', '99', 180, '8/10', 100);
 
 -- --------------------------------------------------------
 
@@ -123,7 +127,9 @@ INSERT INTO `item` (`productID`, `product_name`, `sellerID`, `product_category`,
 DROP TABLE IF EXISTS `seller`;
 CREATE TABLE IF NOT EXISTS `seller` (
   `sellerID` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `seller_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `seller_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `SellPasword` int NOT NULL,
   `seller_phonenumber` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `seller_address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   PRIMARY KEY (`sellerID`),
@@ -134,12 +140,11 @@ CREATE TABLE IF NOT EXISTS `seller` (
 -- Dumping data for table `seller`
 --
 
-INSERT INTO `seller` (`sellerID`, `seller_name`, `seller_phonenumber`, `seller_address`) VALUES
-('', '', '', ''),
-('S0001', 'John Doe', '0123456789', 'Jalan bukit bintang'),
-('S0002', 'Jane Doe', '9876543210', 'Jalan petaling 24'),
-('S0003', 'Hesus', '7894561230', 'hesus@gmail.com'),
-('S0004', 'Keith', '01131441245', 'some where some how');
+INSERT INTO `seller` (`sellerID`, `seller_email`, `seller_name`, `SellPasword`, `seller_phonenumber`, `seller_address`) VALUES
+('S0001', 'John@mail.com', 'John Doe', 1234567890, '0123456789', 'Jalan bukit bintang'),
+('S0002', 'Jane@mail.com', 'Jane Doe', 1234567890, '9876543210', 'Jalan petaling 24'),
+('S0003', 'hesus@mail.com', 'Hesus', 1234567890, '7894561230', 'hesus@gmail.com'),
+('S0004', 'keith@mail.com', 'Keith', 1234567890, '01131441245', 'some where some how');
 
 --
 -- Constraints for dumped tables
