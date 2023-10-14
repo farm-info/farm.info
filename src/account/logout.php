@@ -8,6 +8,6 @@ session_unset();
 session_destroy();
 
 // Redirect the user to the homepage or a logged-out page
-header("Location: index.php"); // Change "index.php" to your homepage URL
+header("Location: farm.info/farm.info/src/index.php"); // Change "index.php" to your homepage URL
 exit;
 ?>

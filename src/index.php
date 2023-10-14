@@ -136,11 +136,11 @@ if (!$loggedIn) {
 
     <script>
         function logout() {
-            window.location.href = "/farm.info/src/account/logout.php";
+            window.location.href = "/farm.info/farm.info/src/account/logout.php";
         }
         
         function goToCart() {
-            window.location.href = "/fami__info/farm.info/src/product/cart.php";
+            window.location.href = "/farm.info/farm.info/src/product/cart.php";
         }
 
         function sell() {
