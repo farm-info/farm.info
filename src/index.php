@@ -138,9 +138,9 @@ if (!$loggedIn) {
         function logout() {
             window.location.href = "/src/account/logout.php";
         }
+        
         function goToCart() {
-    
-            window.location.href = "/src/product/cart.php";
+            window.location.href = "/fami__info/farm.info/src/product/cart.php";
         }
 
         function sell() {
