@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <style>
         input[type=text],
         input[type=email],

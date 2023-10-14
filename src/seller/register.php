@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
     <style>
         input[type=text],
         input[type=email],
@@ -70,7 +70,7 @@
             <button>Submit</button>
             <button type="reset">Reset</button>
 
-            
+
 </body>
 
 </html>
