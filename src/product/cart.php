@@ -1,8 +1,8 @@
 <?php
-include("C:/wamp64/www/farm.info/farm.info/database/conn.php");
+include("../../database/conn.php");
 $result = mysqli_query($con, "SELECT * FROM  cart");
 $title = 'Cart';
-include("../template/top.php");
+include("../../template/top.php");
 ?>
 
 <script>
@@ -43,7 +43,7 @@ include("../template/top.php");
                     <tr>
                         <td><input type="checkbox" name="select-item" id="select_item_1"
                                 onchange="updateSelectAllCheckbox()"></td>
-                        <td><img src="../images/img_nature.jpg" alt="Nature"></td>
+                        <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
 
                         <?php
                         echo "<td>";
@@ -73,7 +73,7 @@ include("../template/top.php");
                 <tr>
                     <td><input type="checkbox" name="select-item" id="select_item_1"
                             onchange="updateSelectAllCheckbox()"></td>
-                    <td><img src="../images/img_nature.jpg" alt="Nature"></td>
+                    <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
                     <td>Product name</td>
                     <td>RM49.90</td>
                     <td>Seller name</td>
@@ -83,7 +83,7 @@ include("../template/top.php");
                 <tr>
                     <td><input type="checkbox" name="select-item" id="select_item_1"
                             onchange="updateSelectAllCheckbox()"></td>
-                    <td><img src="../images/img_nature.jpg" alt="Nature"></td>
+                    <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
                     <td>Product name</td>
                     <td>RM49.90</td>
                     <td>Seller name</td>
@@ -161,5 +161,5 @@ include("../template/top.php");
 
     </script>
 
-    <?php include("../template/bottom.php"); ?>
+    <?php include("../../template/bottom.php"); ?>
 

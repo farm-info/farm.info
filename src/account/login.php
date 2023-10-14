@@ -24,7 +24,7 @@
     <?php
     if (isset($_POST['loginBtn'])) {
         // Modify the include statement to use an absolute path
-        include("C:/wamp64/www/farm.info/farm.info/database/conn.php");
+        include("../../database/conn.php");
         $sql = "SELECT * FROM customer WHERE customer_email='$_POST[customer_email]' AND customer_password='$_POST[customer_password]'";
 
         $result = mysqli_query($con, $sql);
@@ -34,8 +34,7 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['customerID'] = $row['customerID'];
-            // Use an absolute URL to redirect to index.php
-            header("Location: http://localhost/farm.info/farm.info/src/index.php");
+            header("Location: ../index.php");
             exit();
         } else {
             echo "<script>alert('Email or Password not correct!');</script>";
