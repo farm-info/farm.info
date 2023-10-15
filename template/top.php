@@ -23,8 +23,7 @@ include("../../database/conn.php");
             <ul>
                 <li style="float: left"><a href="index.php">Farm.info</a></li>
                 <li><a href="about.php">About</a></li>
-                <li><a href="wiki.php">Wiki</a></li>
-                <li><a href="cart.php">Cart</a></li>
+                <li><a href="product/cart.php">Cart</a></li>
             </ul>
         </nav>
     </header>

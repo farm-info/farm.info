@@ -44,6 +44,8 @@
     ?>
 
     <a href="../seller/register.php">Dont have an account? Register.</a>
+    <br>or<br>
+    <a href="../account/login.php">Go back to customer!!</a>
 </body>
 
 </html>

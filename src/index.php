@@ -138,7 +138,7 @@ $loggedIn = isset($_SESSION['customerID']);
         }
 
         function sell() {
-            window.location.href = "cart.php";
+            window.location.href = "seller/login.php";
         }
 
         function showLogin() {
@@ -155,7 +155,7 @@ $loggedIn = isset($_SESSION['customerID']);
 
         function aboutus() {
             // Redirect to the cart page
-            window.location.href = "about.html";
+            window.location.href = "about.php";
         }
         // JavaScript to handle clicking on product images and descriptions
         var products = document.querySelectorAll(".product");
