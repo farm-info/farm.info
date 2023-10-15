@@ -1,19 +1,19 @@
 <?php $title = 'Item';
-include("../template/top.php");
+include("../../template/top.php");
 ?>
 
 <main class="two-column-layout">
     <section>
         <div class="image-container">
-            <img id="expandedImg" style="width:100%" src="../images/img_nature.jpg">
+            <img id="expandedImg" style="width:100%" src="../../images/img_nature.jpg">
             <div id="imgtext">Nature</div>
         </div>
 
         <div class="image-row">
-            <img src="../images/img_nature.jpg" alt="Nature" onclick="changeImage(this);">
-            <img src="../images/img_snow.jpg" alt="Snow" onclick="changeImage(this);">
-            <img src="../images/img_mountains.jpg" alt="Mountains" onclick="changeImage(this);">
-            <img src="../images/img_lights.jpg" alt="Lights" onclick="changeImage(this);">
+            <img src="../../images/img_nature.jpg" alt="Nature" onclick="changeImage(this);">
+            <img src="../../images/img_snow.jpg" alt="Snow" onclick="changeImage(this);">
+            <img src="../../images/img_mountains.jpg" alt="Mountains" onclick="changeImage(this);">
+            <img src="../../images/img_lights.jpg" alt="Lights" onclick="changeImage(this);">
         </div>
     </section>
 
