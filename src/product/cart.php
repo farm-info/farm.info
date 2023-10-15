@@ -2,17 +2,6 @@
 $title = 'Cart';
 include("../../template/top.php");
 
-// TODO remove this later
-$result = mysqli_query(
-    $con,
-    "SELECT
-        *
-    FROM
-        cart
-    LEFT JOIN item ON cart.productID = cart.productID
-    LEFT JOIN seller ON item.sellerID = seller.sellerID;"
-);
-
 if ($loggedIn) {
     $result = mysqli_query(
         $con,
@@ -52,8 +41,7 @@ if ($loggedIn) {
             </thead>
 
             <tbody>
-                <!-- TODO change this back later -->
-                <?php if ($loggedIn) { ?>
+                <?php if (!$loggedIn) { ?>
                     <tr>
                         <td colspan="7">You're not logged in</td>
                     </tr>
