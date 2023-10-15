@@ -1,9 +1,32 @@
 <?php
-include("../../database/conn.php");
-$result = mysqli_query($con, "SELECT * FROM  cart");
 $title = 'Cart';
 include("../../template/top.php");
+
+// TODO remove this later
+$result = mysqli_query(
+    $con,
+    "SELECT
+        *
+    FROM
+        cart
+    LEFT JOIN item ON cart.productID = cart.productID
+    LEFT JOIN seller ON item.sellerID = seller.sellerID;"
+);
+
+if ($loggedIn) {
+    $result = mysqli_query(
+        $con,
+        "SELECT
+            *
+        FROM
+            cart
+        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN seller ON item.sellerID = seller.sellerID
+        WHERE cart.customerID = " . $_SESSION['customerID']
+    );
+}
 ?>
+
 
 <script>
     var currentPage = window.location.pathname.split('/').pop();
@@ -15,8 +38,7 @@ include("../../template/top.php");
 <main>
     <h1>Cart</h1>
 
-    <!-- TODO make this page -->
-    <form action="/checkout_cart.php" method="post">
+    <form action="/checkout.php" method="post">
         <table id="cart-table" onchange="calculateSum()">
             <thead>
                 <tr>
@@ -30,73 +52,59 @@ include("../../template/top.php");
             </thead>
 
             <tbody>
+                <!-- TODO change this back later -->
+                <?php if ($loggedIn) { ?>
+                    <tr>
+                        <td colspan="7">You're not logged in</td>
+                    </tr>
 
-                <?php
-                if (mysqli_num_rows($result) == 0) { ?>
+                <?php } elseif (mysqli_num_rows($result) == 0) { ?>
                     <tr>
                         <td colspan="7">Your cart is empty</td>
                     </tr>
-                <?php } ?>
+                <?php } else { ?>
 
-                <?php
-                while ($row = mysqli_fetch_array($result)) { ?>
-                    <tr>
-                        <td><input type="checkbox" name="select-item" id="select_item_1"
-                                onchange="updateSelectAllCheckbox()"></td>
-                        <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
+                    <?php while ($row = mysqli_fetch_array($result)) { ?>
+                        <tr>
+                            <td><input type="checkbox" name="select-item" id="select_item_1"
+                                    onchange="updateSelectAllCheckbox()"></td>
+                            <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
 
-                        <?php
-                        echo "<td>";
-                        echo $row['product_name'];
-                        echo "</td>";
+                            <?php
+                            echo "<td>";
+                            echo $row['product_name'];
+                            echo "</td>";
 
-                        echo "<td>RM";
-                        echo $row['product_price'];
-                        echo "</td>";
+                            echo "<td>RM";
+                            echo number_format($row['product_price'], 2);
+                            echo "</td>";
 
-                        echo "<td>";
-                        echo $row['seller_name'];
-                        echo "</td>";
+                            echo "<td>";
+                            echo $row['seller_name'];
+                            echo "</td>";
 
-                        echo "<td>";
-                        echo $row['quantity'];
-                        echo "</td>";
+                            echo "<td>";
+                            echo $row['quantity'];
+                            echo "</td>";
 
-                        echo "<td>";
-                        echo $row['product_price'];
-                        echo "</td>";
-                        ?>
+                            echo "<td>RM";
+                            echo number_format($row['product_price'] * $row['quantity'], 2);
+                            echo "</td>";
+                            ?>
 
-                    </tr>
-                <?php } ?>
-
-                <tr>
-                    <td><input type="checkbox" name="select-item" id="select_item_1"
-                            onchange="updateSelectAllCheckbox()"></td>
-                    <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
-                    <td>Product name</td>
-                    <td>RM49.90</td>
-                    <td>Seller name</td>
-                    <td>2</td>
-                    <td>RM99.80</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox" name="select-item" id="select_item_1"
-                            onchange="updateSelectAllCheckbox()"></td>
-                    <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
-                    <td>Product name</td>
-                    <td>RM49.90</td>
-                    <td>Seller name</td>
-                    <td>2</td>
-                    <td>RM99.80</td>
-                </tr>
+                        </tr>
+                    <?php }
+                } ?>
             </tbody>
         </table>
 
         <section class="checkout">
-            <span id="total-price">Total from 2 item(s): RM99.80</span>
-            <button type="submit">Checkout</button>
+            <span id="total-price">Total from 0 item(s): RM0.00</span>
+            <?php if ($loggedIn) { ?>
+                <button type="submit">Checkout</button>
+            <?php } ?>
         </section>
+
     </form>
 
     <script>
@@ -110,6 +118,7 @@ include("../../template/top.php");
                 let checked = table.rows[i].cells[0].children[0].checked;
 
                 if (checked) {
+                    // to the poor soul who had to read this, i am sorry. i should be banned from using a computer.
                     let priceString = table.rows[i].cells[6].innerHTML;
                     priceString = priceString.substring(2);
                     priceString = priceString.replace(".", "");
@@ -121,7 +130,6 @@ include("../../template/top.php");
             }
 
             totalPriceElement.innerHTML = `Total from ${quantitySum} item(s): RM${(priceSum / 100).toFixed(2)}`;
-            console.log(priceSum);
         }
 
         function updateSelectAllCheckbox() {
