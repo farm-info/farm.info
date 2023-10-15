@@ -1,3 +1,8 @@
+<?php
+include(dirname(__FILE__) . "/session.php");
+include("../../database/conn.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +12,8 @@
     <title>
         <?php echo $title ?> | Farm.info
     </title>
-    <link rel="stylesheet" href="../src/style.css"> <!-- Link to your CSS file for styling -->
+    <!-- yeah this only works on my computer unless you also setup your server the same way. sorry. -->
+    <link rel="stylesheet" href="/farm.info/src/style.css">
 </head>
 
 <body>
