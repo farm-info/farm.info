@@ -2,6 +2,8 @@
 $title = 'Item';
 include("../../template/top.php");
 
+$productID = $_GET['id'];
+
 $query =
     "SELECT item.*, seller.seller_name, product_images.imageID
     FROM item
@@ -9,7 +11,7 @@ $query =
     LEFT JOIN product_images ON item.productID = product_images.productID
     WHERE item.productID = ?";
 $statement = $con->prepare($query);
-$statement->bind_param("s", $_GET['id']);
+$statement->bind_param("s", $productID);
 $statement->execute();
 $result = $statement->get_result();
 $row = mysqli_fetch_array($result);
@@ -19,7 +21,7 @@ $query =
     FROM product_images
     WHERE productID = ?";
 $statement = $con->prepare($query);
-$statement->bind_param("s", $_GET['id']);
+$statement->bind_param("s", $productID);
 $statement->execute();
 $image_result = $statement->get_result();
 
@@ -90,9 +92,18 @@ if (is_null($row)) {
             </p>
             <br>
 
-            <?php if ($loggedIn) { ?>
-                <button>Buy now</button>
-                <button>Add to cart</button>
+            <?php if ($loggedIn) {
+                $userID = $_SESSION['customerID']; ?>
+                <form action="checkout.php" method="post" style="white-space: nowrap; display: inline-block;">
+                    <input type="hidden" name="userID" value="<?= $userID ?>">
+                    <input type="hidden" name="productID" value="<?= $productID ?>">
+                    <input type="submit" value="Buy now">
+                </form>
+                <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
+                    <input type="hidden" name="userID" value="<?= $userID ?>">
+                    <input type="hidden" name="productID" value="<?= $productID ?>">
+                    <input type="submit" value="Add to cart">
+                </form>
             <?php } else { ?>
                 <button onclick="window.location.href = '../account/login.php';">Buy now</button>
                 <button onclick="window.location.href = '../account/login.php';">Add to cart</button>
