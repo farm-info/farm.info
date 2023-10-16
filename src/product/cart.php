@@ -2,17 +2,14 @@
 $title = 'Cart';
 include("../../template/top.php");
 
+$query =
+    "SELECT * FROM cart
+    LEFT JOIN item ON cart.productID = cart.productID
+    LEFT JOIN seller ON item.sellerID = seller.sellerID
+    WHERE cart.customerID = " . $_SESSION['customerID'];
+
 if ($loggedIn) {
-    $result = mysqli_query(
-        $con,
-        "SELECT
-            *
-        FROM
-            cart
-        LEFT JOIN item ON cart.productID = cart.productID
-        LEFT JOIN seller ON item.sellerID = seller.sellerID
-        WHERE cart.customerID = " . $_SESSION['customerID']
-    );
+    $result = mysqli_query($con, $query);
 }
 ?>
 
@@ -50,8 +47,8 @@ if ($loggedIn) {
                     <tr>
                         <td colspan="7">Your cart is empty</td>
                     </tr>
-                <?php } else { ?>
 
+                <?php } else { ?>
                     <?php while ($row = mysqli_fetch_array($result)) { ?>
                         <tr>
                             <td><input type="checkbox" name="select-item" id="select_item_1"
@@ -81,8 +78,8 @@ if ($loggedIn) {
                             ?>
 
                         </tr>
-                    <?php }
-                } ?>
+                    <?php } ?>
+                <?php } ?>
             </tbody>
         </table>
 
