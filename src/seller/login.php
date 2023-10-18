@@ -25,7 +25,8 @@
     if (isset($_POST['loginBtn'])) {
         // Modify the include statement to use an absolute path
         include("../../database/conn.php");
-        $sql = "SELECT * FROM seller WHERE seller_email='$_POST[seller_email]' AND SellerPassword='$_POST[SellerPassword]'";
+        $sql = "SELECT * FROM seller WHERE seller_email='$_POST[seller_email]' AND SellPassword='$_POST[SellerPassword]'";
+        echo $sql;
 
         $result = mysqli_query($con, $sql);
         $row = mysqli_fetch_array($result);
