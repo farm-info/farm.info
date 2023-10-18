@@ -1,49 +1,116 @@
-<?php $title = 'Item';
+<?php
+$title = 'Item';
 include("../../template/top.php");
-?>
 
-<main class="two-column-layout">
-    <section>
-        <div class="image-container">
-            <img id="expandedImg" style="width:100%" src="../../images/img_nature.jpg">
-            <div id="imgtext">Nature</div>
-        </div>
+$productID = $_GET['id'];
 
-        <div class="image-row">
-            <img src="../../images/img_nature.jpg" alt="Nature" onclick="changeImage(this);">
-            <img src="../../images/img_snow.jpg" alt="Snow" onclick="changeImage(this);">
-            <img src="../../images/img_mountains.jpg" alt="Mountains" onclick="changeImage(this);">
-            <img src="../../images/img_lights.jpg" alt="Lights" onclick="changeImage(this);">
-        </div>
-    </section>
+$query =
+    "SELECT item.*, seller.seller_name, product_images.imageID
+    FROM item
+    LEFT JOIN seller ON item.sellerID = seller.sellerID
+    LEFT JOIN product_images ON item.productID = product_images.productID
+    WHERE item.productID = ?";
+$statement = $con->prepare($query);
+$statement->bind_param("s", $productID);
+$statement->execute();
+$result = $statement->get_result();
+$row = mysqli_fetch_array($result);
 
-    <script>
-        function changeImage(imgs) {
-            var expandImg = document.getElementById("expandedImg");
-            var imgText = document.getElementById("imgtext");
-            expandImg.src = imgs.src;
-            imgText.innerHTML = imgs.alt;
-            expandImg.parentElement.style.display = "block";
-        }
-    </script>
+$query =
+    "SELECT imageID, image_alt_text
+    FROM product_images
+    WHERE productID = ?";
+$statement = $con->prepare($query);
+$statement->bind_param("s", $productID);
+$statement->execute();
+$image_result = $statement->get_result();
 
-    <section>
-        <h1>Product name</h1>
-        <div class="price">RM49.90</div>
-        <div>Sold by: Seller name</div>
-        <div class="product-stats"> 10 sold • 4.2 / 5 rating • 110 views</div>
-        <br>
+if (is_null($row)) {
+    echo "Product not found. Contact us if you think this is an error.";
 
-        <i>Product category</i>
-        <p>Product description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra scelerisque
-            velit, non iaculis dolor fermentum ac. Mauris vulputate, orci vel cursus dapibus, elit velit blandit
-            ex, aclacinia metus.</p>
-        <br>
+} else { ?>
+    <main class="two-column-layout">
 
-        <button>Buy now</button>
-        <button>Add to cart</button>
-    </section>
+        <?php if (mysqli_num_rows($image_result) == 0) {
+            $images[] = "0";
+            $alt_texts[] = "No images avaliable for this product.";
+        } else {
+            while ($image_row = mysqli_fetch_array($image_result)) {
+                $images[] = $image_row["imageID"];
+                $alt_texts[] = $image_row["image_alt_text"];
+            }
+        } ?>
+
+        <section>
+            <div class="image-container">
+                <img id="expandedImg" style="width:100%" src="get_product_image.php?id=<?= $images[0] ?>"
+                    alt="<?= $alt_texts[0] ?>">
+                <div id="imgtext">
+                    <?= $alt_texts[0] ?>
+                </div>
+            </div>
+
+            <div class="image-row">
+                <?php foreach ($images as $key => $image) { ?>
+                    <img src="get_product_image.php?id=<?= $image ?>" alt="<?= $alt_texts[$key] ?>" onclick="changeImage(this);"
+                        loading="lazy">
+                <?php } ?>
+            </div>
+        </section>
+
+        <script>
+            function changeImage(imgs) {
+                var expandedImg = document.getElementById("expandedImg");
+                var imgText = document.getElementById("imgtext");
+                expandedImg.src = imgs.src;
+                imgText.innerHTML = imgs.alt;
+            }
+        </script>
+
+        <section>
+            <h1>
+                <?= $row["product_name"] ?>
+            </h1>
+            <div class="price">RM
+                <?= $row["product_price"] ?>
+            </div>
+            <div>Sold by:
+                <?= $row["seller_name"] ?>
+            </div>
+            <div class="product-stats">
+                <?= $row["product_sold"] ?> sold •
+                <?= $row["product_rating"] ?>/5 rating •
+                <?= $row["product_views"] ?> views
+            </div>
+            <br>
+
+            <i>
+                <?= $row["product_category"] ?>
+            </i>
+            <p>
+                <?= $row["product_description"] ?>
+            </p>
+            <br>
+
+            <?php if ($loggedIn) {
+                $userID = $_SESSION['customerID']; ?>
+                <form action="checkout.php" method="post" style="white-space: nowrap; display: inline-block;">
+                    <input type="hidden" name="userID" value="<?= $userID ?>">
+                    <input type="hidden" name="productID" value="<?= $productID ?>">
+                    <input type="submit" value="Buy now">
+                </form>
+                <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
+                    <input type="hidden" name="userID" value="<?= $userID ?>">
+                    <input type="hidden" name="productID" value="<?= $productID ?>">
+                    <input type="submit" value="Add to cart">
+                </form>
+            <?php } else { ?>
+                <button onclick="window.location.href = '../account/login.php';">Buy now</button>
+                <button onclick="window.location.href = '../account/login.php';">Add to cart</button>
+            <?php } ?>
+        </section>
+    <?php } ?>
 
 
-    <?php include("../template/bottom.php"); ?>
+    <?php include("../../template/bottom.php"); ?>
 
