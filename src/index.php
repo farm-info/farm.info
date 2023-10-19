@@ -57,7 +57,7 @@ $loggedIn = isset($_SESSION['customerID']);
 </head>
 
 <body>
-
+    
     <header>
         <div id="logo-container">
 
