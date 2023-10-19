@@ -28,7 +28,7 @@ include dirname(__FILE__) . "/../includes/conn.php";
             <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
             <li><a href="/farm.info/src/about.php">About us</a></li>
             <?php if (!$loggedIn) { ?>
-                <li><a href="/farm.info/src/customer/register.php">Register</a></li>
+                <li><a href="/farm.info/src/account/register.php">Register</a></li>
                 <li><a href="/farm.info/src/account/login.php">Login</a></li>
             <?php } else { ?>
                 <li><a href="/farm.info/src/account/logout.php">Log out</a></li>

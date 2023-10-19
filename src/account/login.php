@@ -41,7 +41,7 @@
         }
     }
     ?>
-    <a href="../customer/register.php">Dont have an account? Register Here.</a>
+    <a href="../account/register.php">Dont have an account? Register Here.</a>
     <br>or</br>
     <a href="../seller/login.php">Login as seller.</a>
 </body>

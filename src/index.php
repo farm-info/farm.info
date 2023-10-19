@@ -58,7 +58,7 @@
 
         echo '<a class="button" href="./seller/edit.php?id=' . $row["productID"] . '" id="edit">Add to cart</a>';
 
-        
+
 
         echo '</div>';
     }
@@ -90,7 +90,7 @@
         function showRegister() {
             // Code to display the registration form or navigate to the registration page
             // For demonstration purposes, we'll show an alert here.
-            window.location.href = "customer/register.php";
+            window.location.href = "account/register.php";
         }
 
         function aboutus() {
