@@ -55,39 +55,10 @@ $loggedIn = isset($_SESSION['customerID']);
     </style>
 
 </head>
-
+<?php 
+    include "../template/top.php"
+?>
 <body>
-
-    <header>
-        <div id="logo-container">
-
-            <img src="../images/logo.png" alt="Marketplace Logo" id="logo">
-            <span id="logo-text">Farm.Info</span>
-
-
-        </div><br>
-        
-        <button onclick="aboutus()">About Us</button>
-    </header>
-
-    <div id="button_cont1">
-        <button onclick="sell()">Sell?</button>
-        <button onclick="goToCart()">Go to Cart</button>
-        <?php if (!$loggedIn) { ?>
-            <button onclick="showLogin()">Login</button>
-            <button onclick="showRegister()">Register</button>
-        <?php } else { ?>
-            <button onclick="logout()">Logout</button>
-        <?php } ?>
-    </div>
-
-    <section id="product-list">
-
-
-    </section>
-
-
-
     <?php
     include "../includes/conn.php";
     for ($x = 0; $x < 0; $x++) {
