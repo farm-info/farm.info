@@ -58,7 +58,7 @@
 
         echo '<a class="button" href="./seller/edit.php?id=' . $row["productID"] . '" id="edit">Add to cart</a>';
 
-        echo '<a class="button" href="delete.php?id=' . $row["product_category"] . '" onclick="return confirm(\'Delete ' . $row["product_category"] . ' record?\');" id="delete">Delete</a>';
+        
 
         echo '</div>';
     }
