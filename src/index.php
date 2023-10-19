@@ -1,10 +1,3 @@
-<?php
-session_start();
-
-// Check if the user is logged in
-$loggedIn = isset($_SESSION['customerID']);
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -59,7 +52,7 @@ $loggedIn = isset($_SESSION['customerID']);
 
 </head>
 <?php 
-    include "../template/top.php"
+    include "../includes/top.php";
 ?>
 <body>
     <?php
