@@ -1,6 +1,6 @@
 <?php
 $title = 'Item';
-include("../../template/top.php");
+include "../../template/top.php";
 
 $productID = $_GET['id'];
 
@@ -112,5 +112,5 @@ if (is_null($row)) {
     <?php } ?>
 
 
-    <?php include("../../template/bottom.php"); ?>
+    <?php include "../../template/bottom.php"; ?>
 

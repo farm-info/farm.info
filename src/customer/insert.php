@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../database/conn.php");
+include "../../database/conn.php";
 
 $sql = "INSERT INTO customer (customerID,customer_name, customer_username, customer_email,customer_phonenumber,customer_password,customer_address)
 VALUES ('$_POST[customerID]','$_POST[customer_name]','$_POST[customer_username]', '$_POST[customer_email]', '$_POST[customer_phonenumber]', '$_POST[customer_password]', '$_POST[customer_address]')";
