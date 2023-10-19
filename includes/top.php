@@ -21,18 +21,19 @@ include dirname(__FILE__) . "/../includes/conn.php";
         <ul>
             <li style="float: left">
                 <a href="index.php" id="logo-text" style="padding: 0">
-                    <img src="../images/logo.png" alt="Marketplace Logo" id="logo"></a>
+                    <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo"></a>
             </li>
             <li style="float: left"><a href="index.php" id="logo-text">Farm.info</a></li>
-            <li><a href="/farm.info/src/about.php">About us</a></li>
-            <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
+
             <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
+            <li><a href="/farm.info/src/about.php">About us</a></li>
             <?php if (!$loggedIn) { ?>
-                <li><a href="account/login.php">Login</a></li>
-                <li><a href="customer/register.php">Register</a></li>
+                <li><a href="/farm.info/src/customer/register.php">Register</a></li>
+                <li><a href="/farm.info/src/account/login.php">Login</a></li>
             <?php } else { ?>
-                <li><a href="account/logout.php">Log out</a></li>
+                <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
             <?php } ?>
+            <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
         </ul>
     </nav>
     </header>
