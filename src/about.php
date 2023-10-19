@@ -1,7 +1,7 @@
 <?php $title = 'About';
-include("../template/top.php"); ?>
+include "../includes/top.php"; ?>
 
 <!-- someting something somethingdfhslhfalf -->
 
-<?php include("../template/bottom.php"); ?>
+<?php include "../includes/bottom.php"; ?>
 

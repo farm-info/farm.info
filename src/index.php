@@ -61,7 +61,7 @@ $loggedIn = isset($_SESSION['customerID']);
 ?>
 <body>
     <?php
-    include("../database/conn.php");
+    include "../includes/conn.php";
     for ($x = 0; $x < 0; $x++) {
         ?>
 

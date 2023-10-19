@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("../../database/conn.php");
+include "../../includes/conn.php";
 
 
 $sqlc ="SELECT * FROM seller WHERE sellerID = '$_POST[sellerID]'";
@@ -21,3 +21,4 @@ if (!mysqli_query($con, $sql)) {
 }
 
 ?>
+

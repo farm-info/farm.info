@@ -1,6 +1,6 @@
 <?php
 
-include("../../database/conn.php");
+include "../../includes/conn.php";
 
 $sql = "UPDATE seller SET
     productID='$_POST[contact_name]',
