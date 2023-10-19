@@ -2,14 +2,17 @@
 $title = 'Cart';
 include "../../includes/top.php";
 
-$query =
-    "SELECT * FROM cart
-    LEFT JOIN item ON cart.productID = cart.productID
-    LEFT JOIN seller ON item.sellerID = seller.sellerID
-    WHERE cart.customerID = " . $_SESSION['customerID'];
-
 if ($loggedIn) {
-    $result = mysqli_query($con, $query);
+    $query =
+        "SELECT * FROM cart
+        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN seller ON item.sellerID = seller.sellerID
+        WHERE cart.customerID = " . $_SESSION['customerID'];
+
+    $statement = $con->prepare($query);
+    $statement->bind_param("s", $_GET['id']);
+    $statement->execute();
+    $result = $statement->get_result();
 }
 ?>
 
