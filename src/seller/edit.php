@@ -49,7 +49,7 @@
         <h1>My Address Book</h1>
         <h2>Edit Contact</h2>
         <?php
-        include "../../database/conn.php";
+        include "../../includes/conn.php";
         $id = intval($_GET['id']);
         $sql = "SELECT * FROM contacts WHERE id=$id";
         $result = mysqli_query($con, $sql);

@@ -1,5 +1,5 @@
 <?php
-include "../../database/conn.php";
+include "../../includes/conn.php";
 $id = $_GET["id"];
 $sql = "DELETE FROM seller WHERE id=" . $id;
 mysqli_query($con, $sql);

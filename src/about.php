@@ -1,6 +1,6 @@
 <?php $title = 'About';
-include "../template/top.php"; ?>
+include "../includestop.php"; ?>
 
 
-<?php include "../template/bottom.php"; ?>
+<?php include "../includesbottom.php"; ?>
 

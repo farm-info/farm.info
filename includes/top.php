@@ -1,6 +1,6 @@
 <?php
-includedirname(__FILE__) . "/session.php";
-includedirname(__FILE__) . "/../database/conn.php";
+include dirname(__FILE__) . "/session.php";
+include dirname(__FILE__) . "/../includes/conn.php";
 ?>
 
 <!DOCTYPE html>

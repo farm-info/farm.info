@@ -24,7 +24,7 @@
     <?php
     if (isset($_POST['loginBtn'])) {
         // Modify the include statement to use an absolute path
-        include"../../database/conn.php";
+        include "../../includes/conn.php";
         $sql = "SELECT * FROM customer WHERE customer_email='$_POST[customer_email]' AND customer_password='$_POST[customer_password]'";
 
         $result = mysqli_query($con, $sql);

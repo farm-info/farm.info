@@ -1,5 +1,5 @@
 <?php
-include "../../database/conn.php";
+include "../../includes/conn.php";
 
 if ($_GET['id'] == 0) {
     $image = file_get_contents("../../images/logo.png");
