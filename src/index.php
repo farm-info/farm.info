@@ -66,6 +66,7 @@ $loggedIn = isset($_SESSION['customerID']);
 
 
         </div><br>
+        
         <button onclick="aboutus()">About Us</button>
     </header>
 
