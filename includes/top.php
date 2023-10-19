@@ -7,38 +7,6 @@ include dirname(__FILE__) . "/../includes/conn.php";
 <html lang="en">
 
 <head>
-
-
-
-<header>
-        <div id="logo-container">
-
-            <img src="../images/logo.png" alt="Marketplace Logo" id="logo">
-            <span id="logo-text">Farm.Info</span>
-
-
-        </div><br>
-        
-        <button onclick="aboutus()">About Us</button>
-    </header>
-
-    <div id="button_cont1">
-        <button onclick="sell()">Sell?</button>
-        <button onclick="goToCart()">Go to Cart</button>
-        <?php if (!$loggedIn) { ?>
-            <button onclick="showLogin()">Login</button>
-            <button onclick="showRegister()">Register</button>
-        <?php } else { ?>
-            <button onclick="logout()">Logout</button>
-        <?php } ?>
-    </div>
-
-    <section id="product-list">
-
-
-    </section>
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
@@ -49,15 +17,24 @@ include dirname(__FILE__) . "/../includes/conn.php";
 </head>
 
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <ul>
-                <li style="float: left"><a href="index.php">Farm.info</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="product/cart.php">Cart</a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+            <li style="float: left">
+                <a href="index.php" id="logo-text" style="padding: 0">
+                    <img src="../images/logo.png" alt="Marketplace Logo" id="logo"></a>
+            </li>
+            <li style="float: left"><a href="index.php" id="logo-text">Farm.info</a></li>
+            <li><a href="/farm.info/src/about.php">About us</a></li>
+            <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
+            <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
+            <?php if (!$loggedIn) { ?>
+                <li><a href="account/login.php">Login</a></li>
+                <li><a href="customer/register.php">Register</a></li>
+            <?php } else { ?>
+                <li><a href="account/logout.php">Log out</a></li>
+            <?php } ?>
+        </ul>
+    </nav>
     </header>
 
     <!-- assigns .active class to the link of current page -->

@@ -1,14 +1,11 @@
 <?php $title = 'About';
-include("../template/top.php"); ?>
+include("../includes/top.php"); ?>
 
-<!-- someting something somethingdfhslhfalf -->
 
 <div class="about-section">
   <h1>About Farm.info</h1>
   <p>Some text about who we are and what we do.</p>
 </div>
-
-
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
