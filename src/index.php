@@ -1,17 +1,13 @@
-<?php
-session_start();
-
-// Check if the user is logged in
-$loggedIn = isset($_SESSION['customerID']);
-?>
-
 <!DOCTYPE html>
 <html>
+
+
 
 <head>
     <link href="style.css" rel="stylesheet">
     <title>Farm.info</title>
     <style>
+
         #logo {
             width: 100px;
             height: 100px;
@@ -56,7 +52,7 @@ $loggedIn = isset($_SESSION['customerID']);
 
 </head>
 <?php 
-    include "../template/top.php"
+    include "../includes/top.php";
 ?>
 <body>
     <?php
@@ -140,6 +136,10 @@ $loggedIn = isset($_SESSION['customerID']);
             });
         });
     </script>
+    
+
+    <?php include("../includes/bottom.php"); ?>
+    
 </body>
 
 </html>
