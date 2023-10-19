@@ -95,7 +95,8 @@ if (is_null($row)) {
             <?php if ($loggedIn) {
                 $customerID = $_SESSION['customerID']; ?>
                 <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="number" name="quantity" id="quantity">
+                    <input type="number" name="quantity" id="quantity" min="1" max="100">
+                    <br>
                     <input type="hidden" name="customerID" value="<?= $customerID ?>">
                     <input type="hidden" name="productID" value="<?= $productID ?>">
 
@@ -104,8 +105,7 @@ if (is_null($row)) {
                 </form>
 
             <?php } else { ?>
-                <button onclick="window.location.href = '../account/login.php';">Buy now</button>
-                <button onclick="window.location.href = '../account/login.php';">Add to cart</button>
+                <button onclick="window.location.href = '../account/login.php';">Log in to buy now</button>
             <?php } ?>
 
         </section>
