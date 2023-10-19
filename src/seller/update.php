@@ -1,6 +1,6 @@
 <?php
 
-include"../../database/conn.php";
+include "../../database/conn.php";
 
 $sql = "UPDATE seller SET
     productID='$_POST[contact_name]',
@@ -16,7 +16,7 @@ $sql = "UPDATE seller SET
 
 mysqli_query($con, $sql);
 
-header("location:view.php";
+header("location:view.php");
 
 ?>
 

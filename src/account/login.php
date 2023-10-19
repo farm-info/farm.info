@@ -34,7 +34,7 @@
         if ($rowcount == 1) {
             session_start();
             $_SESSION['customerID'] = $row['customerID'];
-            header("Location: ../index.php";
+            header("Location: ../index.php");
             exit();
         } else {
             echo "<script>alert('Email or Password not correct!');</script>";

@@ -35,7 +35,7 @@
             session_start();
             $_SESSION['sellerID'] = $row['sellerID'];
             // Use an absolute URL to redirect to index.php
-            header("Location: ../index.php";
+            header("Location: ../index.php");
             exit();
         } else {
             echo "<script>alert('Email or Password not correct!');</script>";
