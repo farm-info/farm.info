@@ -1,6 +1,6 @@
 <?php
 $title = 'Cart';
-include "../../includestop.php";
+include "../../includes/top.php";
 
 $query =
     "SELECT * FROM cart
@@ -154,5 +154,5 @@ if ($loggedIn) {
 
     </script>
 
-    <?php include "../../includesbottom.php"; ?>
+    <?php include "../../includes/bottom.php"; ?>
 

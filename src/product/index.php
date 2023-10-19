@@ -1,6 +1,6 @@
 <?php
 $title = 'Item';
-include "../../includestop.php";
+include "../../includes/top.php";
 
 $productID = $_GET['id'];
 
@@ -93,24 +93,24 @@ if (is_null($row)) {
             <br>
 
             <?php if ($loggedIn) {
-                $userID = $_SESSION['customerID']; ?>
-                <form action="checkout.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="hidden" name="userID" value="<?= $userID ?>">
-                    <input type="hidden" name="productID" value="<?= $productID ?>">
-                    <input type="submit" value="Buy now">
-                </form>
+                $customerID = $_SESSION['customerID']; ?>
                 <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="hidden" name="userID" value="<?= $userID ?>">
+                    <input type="number" name="quantity" id="quantity">
+                    <input type="hidden" name="customerID" value="<?= $customerID ?>">
                     <input type="hidden" name="productID" value="<?= $productID ?>">
-                    <input type="submit" value="Add to cart">
+
+                    <input type="submit" name="buy_now" value="Buy now">
+                    <input type="submit" name="add_to_cart" value="Add to cart">
                 </form>
+
             <?php } else { ?>
                 <button onclick="window.location.href = '../account/login.php';">Buy now</button>
                 <button onclick="window.location.href = '../account/login.php';">Add to cart</button>
             <?php } ?>
+
         </section>
     <?php } ?>
 
 
-    <?php include "../../includesbottom.php"; ?>
+    <?php include "../../includes/bottom.php"; ?>
 
