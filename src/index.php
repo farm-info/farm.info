@@ -55,7 +55,9 @@ $loggedIn = isset($_SESSION['customerID']);
     </style>
 
 </head>
-
+<?php 
+    include "../template/top.php"
+?>
 <body>
     
     <header>
