@@ -136,6 +136,10 @@
             });
         });
     </script>
+    
+
+    <?php include("../includes/bottom.php"); ?>
+    
 </body>
 
 </html>

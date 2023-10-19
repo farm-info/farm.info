@@ -1,5 +1,5 @@
 <?php $title = 'About';
-include("../template/top.php"); ?>
+include("../includes/top.php"); ?>
 
 <!-- someting something somethingdfhslhfalf -->
 
@@ -50,5 +50,5 @@ include("../template/top.php"); ?>
   </div>
 </div>
 
-<?php include("../template/bottom.php"); ?>
+<?php include("../includes/bottom.php"); ?>
 
