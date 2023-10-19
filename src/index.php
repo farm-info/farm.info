@@ -8,11 +8,13 @@ $loggedIn = isset($_SESSION['customerID']);
 <!DOCTYPE html>
 <html>
 
+
+
 <head>
     <link href="style.css" rel="stylesheet">
     <title>Farm.info</title>
     <style>
-        
+
         #logo {
             width: 100px;
             height: 100px;
