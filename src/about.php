@@ -49,5 +49,5 @@ include("../includes/top.php"); ?>
   </div>
 </div>
 
-<?php include("../template/bottom.php"); ?>
+<?php include("../includes/bottom.php"); ?>
 
