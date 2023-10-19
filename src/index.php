@@ -1,25 +1,8 @@
-<!DOCTYPE html>
-<html>
-
+<?php include "../includes/top.php"; ?>
 
 
 <head>
-    <link href="style.css" rel="stylesheet">
-    <title>Farm.info</title>
     <style>
-
-        #logo {
-            width: 100px;
-            height: 100px;
-        }
-
-        #logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-
-
         #button_cont1 {
             text-align: right;
             padding: 10px;
@@ -33,27 +16,16 @@
         #decproduct {
             font-size: 50px;
             margin-top: auto;
-
         }
 
         #decproduct2 {
             font-size: 10px;
             margin-top: auto;
-
-        }
-
-        #logo-text {
-            font-size: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
     </style>
-
 </head>
-<?php 
-    include "../includes/top.php";
-?>
+
+
 <body>
     <?php
     include "../includes/conn.php";
@@ -136,10 +108,7 @@
             });
         });
     </script>
-    
+
 
     <?php include("../includes/bottom.php"); ?>
-    
-</body>
 
-</html>
