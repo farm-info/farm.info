@@ -1,5 +1,5 @@
 <?php $title = 'About';
-include("../includes/top.php"); ?>
+include("../template/top.php"); ?>
 
 <!-- someting something somethingdfhslhfalf -->
 
@@ -7,6 +7,8 @@ include("../includes/top.php"); ?>
   <h1>About Farm.info</h1>
   <p>Some text about who we are and what we do.</p>
 </div>
+
+
 
 <h2 style="text-align:center">Our Team</h2>
 <div class="row">
@@ -50,5 +52,5 @@ include("../includes/top.php"); ?>
   </div>
 </div>
 
-<?php include("../includes/bottom.php"); ?>
+<?php include("../template/bottom.php"); ?>
 
