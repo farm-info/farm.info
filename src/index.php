@@ -30,7 +30,6 @@ include "../includes/top.php"; ?>
 
 <body>
     <?php
-    include "../includes/conn.php";
     for ($x = 0; $x < 0; $x++) {
         ?>
 
@@ -40,13 +39,16 @@ include "../includes/top.php"; ?>
 
         <?php
     }
-    $sql = "SELECT * FROM item";
+    $sql = "SELECT item.*, product_images.imageID, product_images.image_alt_text
+            FROM item
+            LEFT JOIN product_images ON item.productID = product_images.productID";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_array($result)) {
         echo '<div id="box">';
 
 
-        echo '<h3>' . $row["product_name"] . '</h3>';
+        echo '<h3> <a href="/farm.info/src/product?id=' . $row["productID"] . '">' . $row["product_name"] . '</a></h3>';
+        echo '<img src="product/get_product_image.php?id=' . $row["imageID"] . '" alt="' . $row["image_alt_text"] . '" loading="lazy" style="width: 100%">';
         echo '<div class="contact_details">ProductID: ' . $row["productID"] . '</div>';
         echo '<div class="contact_details">SellerID: <a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
         echo '<div class="contact_details">Category: ' . $row["product_category"] . '</div>';
