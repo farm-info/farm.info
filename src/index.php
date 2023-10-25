@@ -1,4 +1,6 @@
-<?php include "../includes/top.php"; ?>
+<?php
+$title = 'Index';
+include "../includes/top.php"; ?>
 
 
 <head>

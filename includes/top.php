@@ -20,10 +20,11 @@ include dirname(__FILE__) . "/../includes/conn.php";
     <nav>
         <ul>
             <li style="float: left">
-                <a href="index.php" id="logo-text" style="padding: 0">
-                    <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo"></a>
+                <a href="/farm.info/src/index.php" id="logo-text" style="padding: 0">
+                    <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo">
+                </a>
             </li>
-            <li style="float: left"><a href="index.php" id="logo-text">Farm.info</a></li>
+            <li style="float: left"><a href="/farm.info/src/index.php" id="logo-text">Farm.info</a></li>
 
             <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
             <li><a href="/farm.info/src/about.php">About us</a></li>
@@ -46,7 +47,4 @@ include dirname(__FILE__) . "/../includes/conn.php";
         linkToCurrentPage.setAttribute("class", "active");
     </script>
 
-
-
-    <!-- Main Content Section -->
     <main>
