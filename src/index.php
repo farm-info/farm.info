@@ -47,7 +47,7 @@ include "../includes/top.php"; ?>
         echo '<div id="box">';
 
 
-        echo '<h3> <a href="/farm.info/src/product?id=' . $row["productID"] . '">' . $row["product_name"] . '</a></h3>';
+        echo '<h3> <a href="product?id=' . $row["productID"] . '">' . $row["product_name"] . '</a></h3>';
         echo '<img src="product/get_product_image.php?id=' . $row["imageID"] . '" alt="' . $row["image_alt_text"] . '" loading="lazy" style="width: 100%">';
         echo '<div class="contact_details">ProductID: ' . $row["productID"] . '</div>';
         echo '<div class="contact_details">SellerID: <a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
@@ -60,7 +60,16 @@ include "../includes/top.php"; ?>
 
         echo '<br>';
 
-        echo '<a class="button" href="./seller/edit.php?id=' . $row["productID"] . '" id="edit">Add to cart</a>';
+        if ($loggedIn) {
+            echo '<form action="product/add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
+            <input type="hidden" name="customerID" value="' . $_SESSION['customerID'] . '">
+            <input type="hidden" name="productID" value="' . $row["productID"] . '">
+            <input type="submit" value="Add to cart">
+            </form>';
+        } else {
+            echo '<button onclick="window.location.href = \'account/login.php\';">Log in to buy now</button>';
+        }
+
 
 
 
