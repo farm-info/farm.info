@@ -16,7 +16,7 @@
         <input type="email" name="seller_email"><br><br>
 
         Password:<br>
-        <input type="password" name="SellerPassword"><br><br>
+        <input type="password" name="SellPassword"><br><br>
 
         <button name="loginBtn">Login as Seller</button>
     </form>
