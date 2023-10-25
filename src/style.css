@@ -63,18 +63,6 @@ nav>ul>li a:hover {
     padding: 10px;
 }
 
-.button {
-    border: none;
-    padding: 4px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2px 1px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #000000;
-}
-
 #edit:hover,
 #delete:hover {
     background-color: #dedede;
