@@ -7,10 +7,10 @@ if ($loggedIn) {
         "SELECT * FROM cart
         LEFT JOIN item ON cart.productID = cart.productID
         LEFT JOIN seller ON item.sellerID = seller.sellerID
-        WHERE cart.customerID = " . $_SESSION['customerID'];
+        WHERE cart.customerID = ?";
 
     $statement = $con->prepare($query);
-    $statement->bind_param("s", $_GET['id']);
+    $statement->bind_param("s", $_SESSION['customerID']);
     $statement->execute();
     $result = $statement->get_result();
 }
@@ -27,7 +27,7 @@ if ($loggedIn) {
 <main>
     <h1>Cart</h1>
 
-    <form action="/checkout.php" method="post">
+    <form action="checkout.php" method="post">
         <table id="cart-table" onchange="calculateSum()">
             <thead>
                 <tr>
