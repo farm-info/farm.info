@@ -25,18 +25,19 @@ include dirname(__FILE__) . "/../includes/conn.php";
                 </a>
             </li>
             <li style="float: left"><a href="/farm.info/src/index.php" id="logo-text">Farm.info</a></li>
+            <li style="float: left"><a href="/farm.info/src/about.php">About us</a></li>
 
-            <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
-            <li><a href="/farm.info/src/about.php">About us</a></li>
-            <?php if (!$loggedIn) { ?>
-                <li><a href="/farm.info/src/account/register.php">Register</a></li>
-                <li><a href="/farm.info/src/account/login.php">Login</a></li>
+            <?php if ($loggedInAsSeller) { ?>
+                <li><a href="/farm.info/src/seller/addprod.php">Add Product</a></li>
+            <?php } else if ($loggedIn) { ?>
+                    <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
+                    <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
             <?php } else { ?>
-                <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
+                    <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
+                    <li><a href="/farm.info/src/account/register.php">Register</a></li>
+                    <li><a href="/farm.info/src/account/login.php">Login</a></li>
             <?php } ?>
-            <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
 
-            <li><a href="/farm.info/src/seller/addprod.php">Add Product</a></li>
         </ul>
     </nav>
     </header>
