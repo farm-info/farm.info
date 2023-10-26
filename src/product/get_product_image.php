@@ -1,8 +1,10 @@
 <?php
 include "../../includes/conn.php";
 
+$placeholder_image = file_get_contents("../../images/placeholder.png");
+
 if ($_GET['id'] == 0) {
-    $image = file_get_contents("../../images/logo.png");
+    $image = $placeholder_image;
     header("Content-type: image/jpeg");
     echo $image;
     exit();
@@ -19,7 +21,7 @@ $result = $statement->get_result();
 $image = mysqli_fetch_column($result);
 
 if (empty($image)) {
-    $image = file_get_contents("../../images/logo.png");
+    $image = $placeholder_image;
 }
 
 header("Content-type: image/jpeg");

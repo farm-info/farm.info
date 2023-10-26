@@ -38,10 +38,13 @@ nav>ul>li a {
 }
 
 #logo {
-    display: block;
     margin: auto;
     max-width: 40px;
     max-height: 40px;
+}
+
+#logo-text {
+    margin: auto;
 }
 
 nav>ul>li a:hover {
@@ -53,27 +56,14 @@ nav>ul>li a:hover {
     background-color: #04AA6D;
 }
 
-/* TODO document this cause no idea wtf does this do */
+/* index.php */
 #box {
     width: 200px;
-    height: 300px;
     background-color: #77DD77;
     float: left;
     border-radius: 10px;
     margin: 10px;
     padding: 10px;
-}
-
-.button {
-    border: none;
-    padding: 4px 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 2px 1px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #000000;
 }
 
 #edit:hover,

@@ -20,22 +20,28 @@ include dirname(__FILE__) . "/../includes/conn.php";
     <nav>
         <ul>
             <li style="float: left">
-                <a href="index.php" id="logo-text" style="padding: 0">
-                    <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo"></a>
+                <a href="/farm.info/src/index.php" id="logo-text" style="padding: 0">
+                    <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo">
+                </a>
             </li>
-            <li style="float: left"><a href="index.php" id="logo-text">Farm.info</a></li>
+            <li style="float: left"><a href="/farm.info/src/index.php" id="logo-text">Farm.info</a></li>
+            <li style="float: left"><a href="/farm.info/src/about.php">About us</a></li>
 
-            <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
-            <li><a href="/farm.info/src/about.php">About us</a></li>
-            <?php if (!$loggedIn) { ?>
-                <li><a href="/farm.info/src/account/register.php">Register</a></li>
-                <li><a href="/farm.info/src/account/login.php">Login</a></li>
+            <?php if ($loggedInAsSeller) { ?>
+                <li><a href="/farm.info/src/seller/addprod.php">Add Product</a></li>
+            <?php } else if ($loggedIn) { ?>
+                    <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
+                    <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
             <?php } else { ?>
-                <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
+                    <li><a href="/farm.info/src/seller/login.php">Seller?</a></li>
+                    <li><a href="/farm.info/src/account/register.php">Register</a></li>
+                    <li><a href="/farm.info/src/account/login.php">Login</a></li>
             <?php } ?>
-            <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
 
+<<<<<<< HEAD
             <li><a href="/farm.info/src/seller/insertprod.php">Add Product</a></li>
+=======
+>>>>>>> c1c3e62b46e9f84efefc5f60f703128c759d1eff
         </ul>
     </nav>
     </header>
@@ -48,7 +54,4 @@ include dirname(__FILE__) . "/../includes/conn.php";
         linkToCurrentPage.setAttribute("class", "active");
     </script>
 
-
-
-    <!-- Main Content Section -->
     <main>
