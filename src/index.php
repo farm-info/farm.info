@@ -60,10 +60,6 @@ include "../includes/top.php"; ?>
         } else {
             echo '<button onclick="window.location.href = \'account/login.php\';">Log in to buy now</button>';
         }
-
-
-
-
         echo '</div>';
     }
     ?>
