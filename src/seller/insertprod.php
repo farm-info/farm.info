@@ -47,7 +47,7 @@
 <body>
     <div id="wrapper">
         <h1>Add Product here</h1>
-        <form method="post" action="addprod.php">
+        <form method="post" action="addprod.php" enctype="multipart/form-data">
 
             <label>product ID</label><br>
             <input type="text" name="productID" required><br><br>
@@ -62,7 +62,10 @@
             <input type="text" name="product_description" required><br><br>
 
             <label>Images</label><br>
-            <input type="file" name="imageData" required><br><br>
+            <input type="file" name="imageData" id="imageData" multiple required><br><br>
+
+            <label>Image alt text</label><br>
+            <input type="text" name="image_alt_text" id="imageData" multiple required><br><br>
 
             <label>Price (RM)</label><br>
             <input type="text" name="product_price" required><br><br>

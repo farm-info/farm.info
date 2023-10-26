@@ -49,7 +49,7 @@ include "../../includes/top.php"; ?>
 
 
         echo '<h3> <a href="product?id=' . $row["productID"] . '">' . $row["product_name"] . '</a></h3>';
-        echo '<img src="product/get_product_image.php?id=' . $row["imageID"] . '" alt="' . $row["image_alt_text"] . '" loading="lazy" style="width: 100%">';
+        echo '<img src="../product/get_product_image.php?id=' . $row["imageID"] . '" alt="' . $row["image_alt_text"] . '" loading="lazy" style="width: 100%">';
         echo '<div class="contact_details">ProductID: ' . $row["productID"] . '</div>';
         echo '<div class="contact_details">SellerID: <a href="mailto:' . $row["sellerID"] . '">' . $row["sellerID"] . '</a></div>';
         echo '<div class="contact_details">Category: ' . $row["product_category"] . '</div>';
