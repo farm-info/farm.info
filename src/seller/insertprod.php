@@ -62,7 +62,7 @@
             <input type="text" name="product_description" required><br><br>
 
             <label>Images</label><br>
-            <input type="file" name="imageData" id="imageData" multiple required><br><br>
+            <input type="file" name="imageData" id="imageData" accept=".jpg,.jpeg" required><br><br>
 
             <label>Image alt text</label><br>
             <input type="text" name="image_alt_text" id="imageData" multiple required><br><br>
