@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['sellerID'])) {
     echo "<script>alert('Please Login!');window.location.href='login.php';</script>";
 }
 ?>
@@ -29,23 +29,25 @@ if (!isset($_SESSION['user_id'])) {
         $search_key = $_POST["search_key"];
     }
 
-    $sql = "SELECT * FROM contacts WHERE contact_name LIKE '%$search_key%' AND user_id=$_SESSION[user_id]";
+    $sql = "SELECT * FROM seller WHERE seller_name LIKE '%$search_key%' AND sellerID=$_SESSION[sellerID]";
     $result = mysqli_query($con, $sql);
     ?>
-    <table id="seller">
+    <table id="item">
         <tr>
-            <th>Name</th>
-            <th>Phone Number</th>
-            <th>Home Address</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity</th>
         </tr>
         <?php
         while ($row = mysqli_fetch_array($result)) {
             echo '<tr>';
-            echo '<td>' . $row['seller_name'] . '</td>';
-            echo '<td>' . $row['seller_phonenumber'] . '</td>';
-            echo '<td>' . $row['seller_address'] . '</td>';
+            echo '<td>' . $row['product_name'] . '</td>';
+            echo '<td>' . $row['product_category'] . '</td>';
+            echo '<td>' . $row['product_description'] . '</td>';
+            echo '<td>' . $row['product_price'] . '</td>';
+            echo '<td>' . $row['stock_quantity'] . '</td>';
             echo '<td><a href="seller_edit.php?id=' . $row['sellerID'] . '">Edit</td>';
             echo '<td><a onclick="return confirm(\'Confirm to delete the record?\')" href="delete.php?id=' . $row['id'] . '">Delete</a></td>';
             echo '</tr>';

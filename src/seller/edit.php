@@ -46,25 +46,33 @@
 
 <body>
     <div id="wrapper">
-        <h1>My Address Book</h1>
-        <h2>Edit Contact</h2>
+        <h1>Farm.info</h1>
+        <h2>Edit Product</h2>
         <?php
         include "../../includes/conn.php";
-        $id = intval($_GET['id']);
-        $sql = "SELECT * FROM contacts WHERE id=$id";
+        $id = intval($_GET['sellerID']);
+        $sql = "SELECT * FROM contacts WHERE sellerID=$sellerID";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             ?>
             <form method="post" action="update.php">
                 <input type="hidden" name="sellerID" value="<?php echo $row['sellerID']; ?>">
-                <label>Name</label><br>
-                <input type="text" name="seller_name" required value="<?php echo $row['contact_name']; ?>"><br><br>
 
-                <label>Phone Number</label><br>
-                <input type="tel" name="seller_phonenumber" required value="<?php echo $row['contact_phone']; ?>"><br><br>
+                <label>Product Name</label><br>
+                <input type="text" name="product_name" required value="<?php echo $row['product_name']; ?>"><br><br>
 
-                <label>Home Address</label><br>
-                <textarea name="seller_address" required><?php echo $row['contact_address'] ?></textarea><br><br>
+                <label>Category</label><br>
+                <input type="tel" name="product_category" required value="<?php echo $row['product_category']; ?>"><br><br>
+
+                <label>Description</label><br>
+                <input type="tel" name="product_description" required value="<?php echo $row['product_description']; ?>"><br><br>
+
+
+                <label>Price</label><br>
+                <input type="tel" name="product_price" required value="<?php echo $row['product_price']; ?>"><br><br>
+
+                <label>Stock Quantity</label><br>
+                <input type="tel" name="stock_quantity" required value="<?php echo $row['stock_quantity']; ?>"><br><br>
 
                 <button>Submit</button>
                 <button type="reset">Reset</button>

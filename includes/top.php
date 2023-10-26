@@ -29,7 +29,7 @@ include dirname(__FILE__) . "/../includes/conn.php";
 
             <?php if ($loggedInAsSeller) { ?>
                 <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
-                <li><a href="/farm.info/src/seller/addprod.php">Add Product</a></li>
+                
             <?php } else if ($loggedIn) { ?>
                     <li><a href="/farm.info/src/account/logout.php">Log out</a></li>
                     <li><a href="/farm.info/src/product/cart.php">Cart</a></li>
