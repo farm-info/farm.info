@@ -42,7 +42,7 @@ include "../../includes/top.php"; ?>
     $sql = "SELECT item.*, product_images.imageID, product_images.image_alt_text
             FROM item
             LEFT JOIN product_images ON item.productID = product_images.productID
-            WHERE sellerID == ".($_SESSION['sellerID']);
+            WHERE sellerID = '" . $_SESSION['sellerID'] . "'";
     $result = mysqli_query($con, $sql);
     while ($row = mysqli_fetch_array($result)) {
         echo '<div id="box">';
