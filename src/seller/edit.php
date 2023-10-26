@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<?php
+$title = 'Index';
+include "../../includes/top.php"; ?>
 
 <head>
     <link href="../style.css" rel="stylesheet">
