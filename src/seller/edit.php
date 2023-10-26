@@ -51,8 +51,8 @@ include "../../includes/top.php"; ?>
         <h2>Edit Product</h2>
         <?php
         include "../../includes/conn.php";
-        $id = intval($_GET['sellerID']);
-        $sql = "SELECT * FROM contacts WHERE sellerID=$sellerID";
+        $id = intval($_GET['id']);
+        $sql = "SELECT * FROM item WHERE productID=$productID";
         $result = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($result)) {
             ?>

@@ -22,7 +22,7 @@ if (!isset($_SESSION['sellerID'])) {
     </form>
     <br>
     <?php
-    include "../includes/conn.php";
+    include "../../includes/conn.php";
     $search_key = "";
 
     if (isset($_POST['search'])) {
@@ -48,7 +48,7 @@ if (!isset($_SESSION['sellerID'])) {
             echo '<td>' . $row['product_description'] . '</td>';
             echo '<td>' . $row['product_price'] . '</td>';
             echo '<td>' . $row['stock_quantity'] . '</td>';
-            echo '<td><a href="seller_edit.php?id=' . $row['sellerID'] . '">Edit</td>';
+            echo '<td><a href="edit.php?id=' . $row['productID'] . '">Edit</td>';
             echo '<td><a onclick="return confirm(\'Confirm to delete the record?\')" href="delete.php?id=' . $row['id'] . '">Delete</a></td>';
             echo '</tr>';
         }
