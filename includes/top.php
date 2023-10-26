@@ -38,10 +38,7 @@ include dirname(__FILE__) . "/../includes/conn.php";
                     <li><a href="/farm.info/src/account/login.php">Login</a></li>
             <?php } ?>
 
-<<<<<<< HEAD
             <li><a href="/farm.info/src/seller/insertprod.php">Add Product</a></li>
-=======
->>>>>>> c1c3e62b46e9f84efefc5f60f703128c759d1eff
         </ul>
     </nav>
     </header>
