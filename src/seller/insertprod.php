@@ -58,8 +58,11 @@
             <label>Category</label><br>
             <input type="tel" name="product_category" required><br><br>
 
-            <label>Descriotion</label><br>
+            <label>Description</label><br>
             <input type="text" name="product_description" required><br><br>
+
+            <label>Images</label><br>
+            <input type="file" name="imageData" required><br><br>
 
             <label>Price (RM)</label><br>
             <input type="text" name="product_price" required><br><br>
@@ -69,8 +72,7 @@
 
             <button>Submit</button>
             <button type="reset">Reset</button>
-
-
+        </form>
 </body>
 
 </html>
