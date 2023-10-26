@@ -60,7 +60,9 @@ include "../includes/top.php"; ?>
 
         echo '<br>';
 
-        if ($loggedIn and !$loggedInAsSeller) {
+        if ($loggedInAsSeller) {
+            echo '<button onclick="window.location.href = \'account/login.php\';">Log in as customer</button>';
+        } else if ($loggedIn) {
             echo '<form action="product/add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
             <input type="hidden" name="customerID" value="' . $_SESSION['customerID'] . '">
             <input type="hidden" name="productID" value="' . $row["productID"] . '">
