@@ -30,23 +30,13 @@ include "../includes/top.php"; ?>
 
 <body>
     <?php
-    for ($x = 0; $x < 0; $x++) {
-        ?>
-
-        <div class="box">
-            <a class="box" href="Music.html"></a>
-        </div>
-
-        <?php
-    }
     $sql = "SELECT item.*, product_images.imageID, product_images.image_alt_text
             FROM item
             LEFT JOIN product_images ON item.productID = product_images.productID";
     $result = mysqli_query($con, $sql);
+
     while ($row = mysqli_fetch_array($result)) {
         echo '<div id="box">';
-
-
         echo '<h3> <a href="product?id=' . $row["productID"] . '">' . $row["product_name"] . '</a></h3>';
         echo '<img src="product/get_product_image.php?id=' . $row["imageID"] . '" alt="' . $row["image_alt_text"] . '" loading="lazy" style="width: 100%">';
         echo '<div class="contact_details">ProductID: ' . $row["productID"] . '</div>';
@@ -57,7 +47,6 @@ include "../includes/top.php"; ?>
         echo '<div class="contact_details">Amount Left: ' . $row["stock_quantity"] . '</div>';
         echo '<div class="contact_details">Ratings: ' . $row["product_rating"] . '</div>';
         echo '<div class="contact_details">Views: ' . $row["product_views"] . '</div>';
-
         echo '<br>';
 
         if ($loggedInAsSeller) {
