@@ -59,7 +59,7 @@ nav>ul>li a:hover {
 /* index.php */
 #box {
     width: 200px;
-    background-color: green;
+    background-color: #77DD77;
     float: left;
     border-radius: 10px;
     margin: 10px;
