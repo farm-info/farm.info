@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 18, 2023 at 06:28 AM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Host: localhost
+-- Generation Time: Oct 26, 2023 at 05:20 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -27,13 +27,11 @@ SET time_zone = "+00:00";
 -- Table structure for table `admin`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `adminID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `admin_username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `admin_email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `admin_password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`adminID`)
+CREATE TABLE `admin` (
+  `adminID` varchar(50) NOT NULL,
+  `admin_username` varchar(50) NOT NULL,
+  `admin_email` varchar(50) NOT NULL,
+  `admin_password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -42,16 +40,11 @@ CREATE TABLE IF NOT EXISTS `admin` (
 -- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `cart`;
-CREATE TABLE IF NOT EXISTS `cart` (
-  `cartID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customerID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `productID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `quantity` int NOT NULL,
-  `total_price` decimal(2,0) NOT NULL,
-  PRIMARY KEY (`cartID`),
-  KEY `FK1_cart` (`productID`),
-  KEY `FK2_cart` (`customerID`)
+CREATE TABLE `cart` (
+  `customerID` varchar(50) NOT NULL,
+  `productID` varchar(50) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `total_price` decimal(2,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -60,16 +53,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
 -- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `customer`;
-CREATE TABLE IF NOT EXISTS `customer` (
-  `customerID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_phonenumber` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_password` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `customer_address` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`customerID`)
+CREATE TABLE `customer` (
+  `customerID` varchar(50) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `customer_username` varchar(50) NOT NULL,
+  `customer_email` varchar(50) NOT NULL,
+  `customer_phonenumber` varchar(50) NOT NULL,
+  `customer_password` varchar(50) NOT NULL,
+  `customer_address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -90,20 +81,17 @@ INSERT INTO `customer` (`customerID`, `customer_name`, `customer_username`, `cus
 -- Table structure for table `item`
 --
 
-DROP TABLE IF EXISTS `item`;
-CREATE TABLE IF NOT EXISTS `item` (
-  `productID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `product_name` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `sellerID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `product_category` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `product_description` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
+CREATE TABLE `item` (
+  `productID` varchar(50) NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `sellerID` varchar(50) NOT NULL,
+  `product_category` varchar(50) NOT NULL,
+  `product_description` varchar(255) NOT NULL,
   `product_price` decimal(2,0) NOT NULL,
-  `stock_quantity` int NOT NULL,
-  `product_sold` int NOT NULL,
+  `stock_quantity` int(11) NOT NULL,
+  `product_sold` int(11) NOT NULL,
   `product_rating` decimal(2,1) NOT NULL,
-  `product_views` int NOT NULL,
-  PRIMARY KEY (`productID`),
-  KEY `FK1_item` (`sellerID`)
+  `product_views` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -111,13 +99,13 @@ CREATE TABLE IF NOT EXISTS `item` (
 --
 
 INSERT INTO `item` (`productID`, `product_name`, `sellerID`, `product_category`, `product_description`, `product_price`, `stock_quantity`, `product_sold`, `product_rating`, `product_views`) VALUES
-('p0001', 'Broccoli seeds', 'S0001', 'Seeds', 'Broccoli seeds 10KG', '50', 200, 0, '7.0', 100),
-('p0002', 'Brand New shovel', 'S0002', 'tools', 'Brand new shovel and spade', '75', 50, 0, '6.5', 150),
-('p0003', 'Fretilizer', 'S0001', 'Chemicals', 'Chemical Fertilizer', '50', 200, 0, '7.0', 100),
-('p0004', 'Cabbage', 'S0002', '. Seed', 'Cabbage seeds ', '60', 500, 0, '5.0', 250),
-('p0005', 'Long Beans', 'S0003', 'Seeds', '300g Long beans', '5', 300, 0, '7.0', 100),
-('p00056', 'Rake', 'S0003', 'tools', 'Rake for farming', '75', 200, 0, '7.0', 100),
-('p00918', 'Random tester', 'S0004', 'tools', 'this is a placeholder tester', '99', 180, 0, '8.0', 100);
+('p0001', 'Broccoli seeds', 'S0001', 'Seeds', 'Broccoli seeds 10KG', 50, 200, 0, 7.0, 100),
+('p0002', 'Brand New shovel', 'S0002', 'tools', 'Brand new shovel and spade', 75, 50, 0, 6.5, 150),
+('p0003', 'Fretilizer', 'S0001', 'Chemicals', 'Chemical Fertilizer', 50, 200, 0, 7.0, 100),
+('p0004', 'Cabbage', 'S0002', '. Seed', 'Cabbage seeds ', 60, 500, 0, 5.0, 250),
+('p0005', 'Long Beans', 'S0003', 'Seeds', '300g Long beans', 5, 300, 0, 7.0, 100),
+('p00056', 'Rake', 'S0003', 'tools', 'Rake for farming', 75, 200, 0, 7.0, 100),
+('p00918', 'Random tester', 'S0004', 'tools', 'this is a placeholder tester', 99, 180, 0, 8.0, 100);
 
 -- --------------------------------------------------------
 
@@ -125,15 +113,12 @@ INSERT INTO `item` (`productID`, `product_name`, `sellerID`, `product_category`,
 -- Table structure for table `product_images`
 --
 
-DROP TABLE IF EXISTS `product_images`;
-CREATE TABLE IF NOT EXISTS `product_images` (
-  `imageID` int NOT NULL AUTO_INCREMENT,
-  `productID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `image_alt_text` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `imageData` mediumblob NOT NULL,
-  PRIMARY KEY (`imageID`),
-  KEY `productID` (`productID`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `product_images` (
+  `imageID` int(11) NOT NULL,
+  `productID` varchar(50) NOT NULL,
+  `image_alt_text` varchar(200) NOT NULL,
+  `imageData` mediumblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product_images`
@@ -150,16 +135,13 @@ INSERT INTO `product_images` (`imageID`, `productID`, `image_alt_text`, `imageDa
 -- Table structure for table `seller`
 --
 
-DROP TABLE IF EXISTS `seller`;
-CREATE TABLE IF NOT EXISTS `seller` (
-  `sellerID` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `seller_email` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `seller_name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `SellPassword` int NOT NULL,
-  `seller_phonenumber` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  `seller_address` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
-  PRIMARY KEY (`sellerID`),
-  KEY `sellerID` (`sellerID`)
+CREATE TABLE `seller` (
+  `sellerID` varchar(50) NOT NULL,
+  `seller_email` varchar(255) NOT NULL,
+  `seller_name` varchar(50) NOT NULL,
+  `SellPassword` int(11) NOT NULL,
+  `seller_phonenumber` varchar(50) NOT NULL,
+  `seller_address` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -171,6 +153,60 @@ INSERT INTO `seller` (`sellerID`, `seller_email`, `seller_name`, `SellPassword`,
 ('S0002', 'Jane@mail.com', 'Jane Doe', 1234567890, '9876543210', 'Jalan petaling 24'),
 ('S0003', 'hesus@mail.com', 'Hesus', 1234567890, '7894561230', 'hesus@gmail.com'),
 ('S0004', 'keith@mail.com', 'Keith', 1234567890, '01131441245', 'some where some how');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`adminID`);
+
+--
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD KEY `FK1_cart` (`productID`),
+  ADD KEY `FK2_cart` (`customerID`);
+
+--
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customerID`);
+
+--
+-- Indexes for table `item`
+--
+ALTER TABLE `item`
+  ADD PRIMARY KEY (`productID`),
+  ADD KEY `FK1_item` (`sellerID`);
+
+--
+-- Indexes for table `product_images`
+--
+ALTER TABLE `product_images`
+  ADD PRIMARY KEY (`imageID`),
+  ADD KEY `productID` (`productID`);
+
+--
+-- Indexes for table `seller`
+--
+ALTER TABLE `seller`
+  ADD PRIMARY KEY (`sellerID`),
+  ADD KEY `sellerID` (`sellerID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `product_images`
+--
+ALTER TABLE `product_images`
+  MODIFY `imageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
