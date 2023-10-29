@@ -49,7 +49,10 @@ include dirname(__FILE__) . "/../includes/conn.php";
     <!-- assigns .active class to the link of current page -->
     <!-- doing it in php would have been better but i couldn't find an elegant way -->
     <script>
-        var currentPage = window.location.pathname.split('/').pop();
+        var currentPage = window.location.pathname;
+        // alternate version that only uses the last part of the path
+        // for example: /farm.info/src/index.php -> index.php
+        //var currentPage = window.location.pathname.split('/').pop();
         var linkToCurrentPage = document.querySelector(`[href="${currentPage}"]`);
         linkToCurrentPage.setAttribute("class", "active");
     </script>
