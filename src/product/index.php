@@ -5,10 +5,9 @@ include "../../includes/top.php";
 $productID = $_GET['id'];
 
 $query =
-    "SELECT item.*, seller.seller_name, product_images.imageID
+    "SELECT item.*, seller.seller_name
     FROM item
     LEFT JOIN seller ON item.sellerID = seller.sellerID
-    LEFT JOIN product_images ON item.productID = product_images.productID
     WHERE item.productID = ?";
 $statement = $con->prepare($query);
 $statement->bind_param("s", $productID);
