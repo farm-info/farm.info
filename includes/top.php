@@ -54,7 +54,7 @@ include dirname(__FILE__) . "/../includes/conn.php";
         // for example: /farm.info/src/index.php -> index.php
         //var currentPage = window.location.pathname.split('/').pop();
         var linkToCurrentPage = document.querySelector(`[href="${currentPage}"]`);
-        linkToCurrentPage.setAttribute("class", "active");
+        linkToCurrentPage.classList.add("class", "active");
     </script>
 
     <main>

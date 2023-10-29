@@ -8,6 +8,7 @@ body {
 }
 
 /* navigation bar */
+/* design is mostly copied from w3schools */
 header {
     position: sticky;
 }
