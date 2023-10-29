@@ -20,7 +20,7 @@ include dirname(__FILE__) . "/../includes/conn.php";
     <nav>
         <ul>
             <li>
-                <a href="/farm.info/src/index.php" id="logo-text" style="padding: 0;">
+                <a href="/farm.info/src/index.php" class="homepage-link">
                     <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo">
                     <span>Farm.info</span>
                 </a>

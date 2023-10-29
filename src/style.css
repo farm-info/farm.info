@@ -29,10 +29,6 @@ nav>ul>spacer {
     flex-grow: 1;
 }
 
-nav>ul>li {
-    /* float: right; */
-}
-
 nav>ul>li a {
     float: left;
     display: block;
@@ -44,14 +40,19 @@ nav>ul>li a {
     font-size: 17px;
 }
 
-#logo {
-    margin: auto;
-    max-width: 40px;
-    max-height: 40px;
+.homepage-link {
+    height: 100%;
+    padding: 0 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
 }
 
-#logo-text {
-    margin: auto;
+#logo {
+    max-width: 40px;
+    max-height: 40px;
 }
 
 nav>ul>li a:hover {
