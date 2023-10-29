@@ -20,6 +20,9 @@ include dirname(__FILE__) . "/../includes/conn.php";
     <nav>
         <ul>
             <li>
+                <!-- you might be asking "why are the links so ugly?" -->
+                <!-- well most of the group members put their project in the wamp server folder -->
+                <!-- they're already so incompetent, so asking them to configure an extra thing would probably kill them -->
                 <a href="/farm.info/src/index.php" class="homepage-link">
                     <img src="/farm.info/images/logo.png" alt="Marketplace Logo" id="logo">
                     <span>Farm.info</span>

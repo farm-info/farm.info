@@ -7,7 +7,7 @@ body {
     margin: 0;
 }
 
-/* navigation bar */
+/* header */
 /* design is mostly copied from w3schools */
 header {
     position: sticky;
@@ -63,6 +63,11 @@ nav>ul>li a:hover {
 
 .active {
     background-color: #04AA6D;
+}
+
+/* footer */
+footer {
+    text-align: center;
 }
 
 /* index.php */
