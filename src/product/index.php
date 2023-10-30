@@ -8,7 +8,8 @@ $query =
     "SELECT item.*, seller.seller_name
     FROM item
     LEFT JOIN seller ON item.sellerID = seller.sellerID
-    WHERE item.productID = ?";
+    WHERE item.productID = ?
+    LIMIT 1";
 $statement = $con->prepare($query);
 $statement->bind_param("s", $productID);
 $statement->execute();
