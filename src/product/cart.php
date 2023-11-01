@@ -106,7 +106,8 @@ if ($loggedIn) {
                 let checked = table.rows[i].cells[0].children[0].checked;
 
                 if (checked) {
-                    // to the poor soul who had to read this, i am sorry. i should be banned from using a computer.
+                    // to the poor souls who had to read this, i am sorry. i should be banned from using a computer.
+                    // i know bad code is probably an every occurance to you people but it still hurts me to write this.
                     let priceString = table.rows[i].cells[6].innerHTML;
                     priceString = priceString.substring(2);
                     priceString = priceString.replace(".", "");
