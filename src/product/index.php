@@ -92,20 +92,23 @@ if (is_null($row)) {
             </p>
             <br>
 
-            <?php if ($loggedIn) {
-                $customerID = $_SESSION['customerID']; ?>
-                <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="number" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
-                    <br>
-                    <input type="hidden" name="customerID" value="<?= $customerID ?>">
-                    <input type="hidden" name="productID" value="<?= $productID ?>">
+            <?php if ($loggedInAsSeller) { ?>
+                <button onclick="window.location.href = 'account/login.php';">Log in as customer</button>
 
-                    <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
-                    <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
-                </form>
+            <?php } else if ($loggedIn) {
+                $customerID = $_SESSION['customerID']; ?>
+                    <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
+                        <input type="number" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
+                        <br>
+                        <input type="hidden" name="customerID" value="<?= $customerID ?>">
+                        <input type="hidden" name="productID" value="<?= $productID ?>">
+
+                        <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
+                        <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
+                    </form>
 
             <?php } else { ?>
-                <button onclick="window.location.href = '../account/login.php';">Log in to buy now</button>
+                    <button onclick="window.location.href = '../account/login.php';">Log in to buy now</button>
             <?php } ?>
 
         </section>
