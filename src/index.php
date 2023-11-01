@@ -26,7 +26,7 @@ include "../includes/top.php"; ?>
         }
 
         body {
-            background-image: url('images/img_lights.jpg');
+            background-image: url('../images/img_lights.jpg');
             background-size: cover;
             background-repeat: no-repeat;
         
