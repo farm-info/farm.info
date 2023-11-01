@@ -74,7 +74,7 @@
             <input type="text" name="stock_quantity" required><br><br>
 
             <button>Submit</button>
-            <button type="reset">Reset</button>
+            <button type="reset">Cancel</button>
         </form>
 </body>
 
