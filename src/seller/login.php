@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login as Seller</title>
-    <link href="../style.css" rel="stylesheet">
-</head>
+<?php
+$title = 'Login as Seller';
+include "../../includes/top.php";
+?>
 
 <body>
     <h3>Login as Seller</h3>
@@ -46,6 +41,6 @@
     <a href="../seller/register.php">Dont have an account? Register.</a>
     <br>or<br>
     <a href="../account/login.php">Go back to customer!!</a>
-</body>
 
-</html>
+    <?php include "../../includes/bottom.php" ?>
+
