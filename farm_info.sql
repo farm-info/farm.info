@@ -43,8 +43,7 @@ CREATE TABLE `admin` (
 CREATE TABLE `cart` (
   `customerID` varchar(50) NOT NULL,
   `productID` varchar(50) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `total_price` decimal(2,0) NOT NULL
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
