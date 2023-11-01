@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
 } else {
     $query =
         "INSERT INTO cart (customerID, productID, quantity)
-    VALUES (?, ?, ?)";
+        VALUES (?, ?, ?)";
     $statement = $con->prepare($query);
     $statement->bind_param("ssi", $_POST['customerID'], $_POST['productID'], $_POST['quantity']);
 }
