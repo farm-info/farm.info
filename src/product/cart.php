@@ -58,27 +58,26 @@ if ($loggedIn) {
                                     onchange="updateSelectAllCheckbox()"></td>
                             <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
 
-                            <?php
-                            echo "<td>";
-                            echo $row['product_name'];
-                            echo "</td>";
+                            <td>
+                                <?= $row['product_name']; ?>
+                            </td>
 
-                            echo "<td>RM";
-                            echo number_format($row['product_price'], 2);
-                            echo "</td>";
+                            <td>
+                                RM
+                                <?= number_format($row['product_price'], 2); ?>
+                            </td>
 
-                            echo "<td>";
-                            echo $row['seller_name'];
-                            echo "</td>";
+                            <td>
+                                <?= $row['seller_name']; ?>
+                            </td>
 
-                            echo "<td>";
-                            echo $row['quantity'];
-                            echo "</td>";
+                            <td>
+                                <?= $row['quantity']; ?>
+                            </td>
 
-                            echo "<td>RM";
-                            echo number_format($row['product_price'] * $row['quantity'], 2);
-                            echo "</td>";
-                            ?>
+                            <td>RM
+                                <?= number_format($row['product_price'] * $row['quantity'], 2); ?>
+                            </td>
 
                         </tr>
                     <?php } ?>
