@@ -51,13 +51,17 @@ include "../includes/top.php"; ?>
 
         if ($loggedInAsSeller) {
             echo '<button onclick="window.location.href = \'account/login.php\';">Log in as customer</button>';
-        } else if ($loggedIn) {
-            echo '<form action="product/add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-            <input type="hidden" name="customerID" value="' . $_SESSION['customerID'] . '">
-            <input type="hidden" name="productID" value="' . $row["productID"] . '">
-            <input type="submit" value="Add to cart">
-            </form>';
-        } else {
+        } else if ($loggedIn) { ?>
+                <!-- you know what? fuck consistency. i can't work with echos -->
+                <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
+                    <input type="hidden" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
+                    <input type="hidden" name="customerID" value="<?= $customerID ?>">
+                    <input type="hidden" name="productID" value="<?= $productID ?>">
+
+                    <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
+                    <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
+                </form>
+        <?php } else {
             echo '<button onclick="window.location.href = \'account/login.php\';">Log in to buy now</button>';
         }
         echo '</div>';

@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
 }
 
 if ($statement->execute()) {
-    echo "<script>alert('Added to cart!');</script>";
+    echo "<script>alert('Added to cart!');window.location.href='cart.php';</script>";
 } else {
     die("Error: " . mysqli_error($con));
 }
