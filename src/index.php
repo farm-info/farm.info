@@ -93,14 +93,12 @@ include "../includes/top.php"; ?>
         }
 
         function showLogin() {
-            // Code to display the login form or navigate to the login page
-            // For demonstration purposes, we'll show an alert here.
+            
             window.location.href = "account/login.php";
         }
 
         function showRegister() {
-            // Code to display the registration form or navigate to the registration page
-            // For demonstration purposes, we'll show an alert here.
+            
             window.location.href = "account/register.php";
         }
 
