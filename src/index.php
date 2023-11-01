@@ -29,7 +29,7 @@ include "../includes/top.php"; ?>
             background-image: url('images/img_lights.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-        
+
         }
     </style>
 </head>
@@ -61,9 +61,9 @@ include "../includes/top.php"; ?>
         } else if ($loggedIn) { ?>
                 <!-- you know what? fuck consistency. i can't work with echos -->
                 <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="hidden" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
-                    <input type="hidden" name="customerID" value="<?= $customerID ?>">
-                    <input type="hidden" name="productID" value="<?= $productID ?>">
+                    <input type="hidden" name="quantity" id="quantity" value="1">
+                    <input type="hidden" name="customerID" value="<?= $_SESSION['customerID'] ?>">
+                    <input type="hidden" name="productID" value="<?= $row["productID"] ?>">
 
                     <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
                     <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
