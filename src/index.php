@@ -66,7 +66,7 @@ include "../includes/top.php"; ?>
                     <input type="hidden" name="productID" value="<?= $row["productID"] ?>">
 
                     <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
-                    <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
+                    <input type="submit" name="add_to_cart" formaction="../src/product/add_to_cart.php" value="Add to cart">
                 </form>
         <?php } else {
             echo '<button onclick="window.location.href = \'account/login.php\';">Log in to buy now</button>';
