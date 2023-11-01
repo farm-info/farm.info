@@ -54,8 +54,10 @@ if ($loggedIn) {
                 <?php } else { ?>
                     <?php while ($row = mysqli_fetch_array($result)) { ?>
                         <tr>
-                            <td><input type="checkbox" name="select-item" id="select_item_1"
-                                    onchange="updateSelectAllCheckbox()"></td>
+
+                            <td><input type="checkbox" name="<?= $row['productID'] ?>" onchange="updateSelectAllCheckbox()">
+                            </td>
+
                             <td><img src="../../images/img_nature.jpg" alt="Nature"></td>
 
                             <td>
