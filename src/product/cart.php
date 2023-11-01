@@ -75,7 +75,8 @@ if ($loggedIn) {
                                 <?= $row['quantity']; ?>
                             </td>
 
-                            <td>RM
+                            <td>
+                                RM
                                 <?= number_format($row['product_price'] * $row['quantity'], 2); ?>
                             </td>
 
