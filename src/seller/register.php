@@ -68,7 +68,7 @@
             <input type="text" name="seller_address" required><br><br>
 
             <button>Submit</button>
-            <button type="reset">Reset</button>
+            <button type="reset">Cencel</button>
 
 
 </body>
