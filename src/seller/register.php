@@ -18,6 +18,13 @@
             font-size: 15pt;
         }
 
+        body {
+            background-image: url('../../images/welcome.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
         #wrapper {
             width: 900px;
             margin: 0 auto;
@@ -68,7 +75,14 @@
             <input type="text" name="seller_address" required><br><br>
 
             <button>Submit</button>
-            <button type="reset">Cencel</button>
+            <button type="reset">Cencel</button><br><br>
+
+            <button onclick="redirectToHome()">Back to home</button>
+            <script>
+            function redirectToHome() {
+                window.location.href = "../index.php";
+            }
+            </script>
 
 
 </body>

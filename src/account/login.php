@@ -3,6 +3,17 @@ $title = 'Login';
 include "../../includes/top.php";
 ?>
 
+<head>
+    <style>
+        body {
+            background-image: url('../../images/farmback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
+
 <h3>Login</h3>
 
 <form method="post">
