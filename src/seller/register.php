@@ -59,7 +59,7 @@
             <input type="tel" name="seller_name" required><br><br>
 
             <label>email</label><br>
-            <input type="text" name="sellPassword" required><br><br>
+            <input type="text" name="SellPassword" required><br><br>
 
             <label>phonenumber</label><br>
             <input type="text" name="seller_phonenumber" required><br><br>
