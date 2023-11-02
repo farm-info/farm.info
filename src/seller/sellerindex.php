@@ -24,6 +24,14 @@ include "../../includes/top.php"; ?>
             font-size: 10px;
             margin-top: auto;
         }
+
+        body {
+            background-image: url('../../images/img_lights.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
     </style>
 </head>
 
@@ -69,7 +77,10 @@ include "../../includes/top.php"; ?>
             </form>';
         } else {
             echo '<button onclick="window.location.href = \'account/login.php\';">Log in to buy now</button>';
+            echo '<button onclick="window.location.href = \'edit.php?id='.$row["productID"].'\';">Edit Product</button>';
         }
+
+        
 
 
 
