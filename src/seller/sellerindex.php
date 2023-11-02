@@ -24,6 +24,14 @@ include "../../includes/top.php"; ?>
             font-size: 10px;
             margin-top: auto;
         }
+
+        body {
+            background-image: url('../images/img_lights.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+        
     </style>
 </head>
 
