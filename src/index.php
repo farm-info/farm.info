@@ -104,8 +104,7 @@ include "../includes/top.php"; ?>
 
         products.forEach(function (product) {
             product.addEventListener("click", function () {
-                // Handle the click on a product, for example, navigate to the product details page.
-                // For demonstration purposes, we'll show an alert here.
+                
                 alert("Product clicked. Redirect to product details page.");
             });
         });
