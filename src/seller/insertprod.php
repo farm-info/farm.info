@@ -17,6 +17,13 @@
             display: inline-block;
             font-size: 15pt;
         }
+        
+        body {
+            background-image: url('../../images/farmback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
 
         #wrapper {
             width: 900px;
@@ -24,7 +31,7 @@
         }
 
         button {
-            background-color: #CCCCCC;
+            background-color: #BEE5B0;
             border: none;
             padding: 15px 32px;
             text-align: center;
@@ -74,7 +81,15 @@
             <input type="text" name="stock_quantity" required><br><br>
 
             <button>Submit</button>
-            <button type="reset">Cancel</button>
+            <button type="reset">Cancel</button> <br><br>
+            
+            <button onclick="redirectToHome()">Back to home</button>
+
+            <script>
+            function redirectToHome() {
+                window.location.href = "../index.php";
+            }
+            </script>
         </form>
 </body>
 
