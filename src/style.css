@@ -3,10 +3,10 @@
 body {
     font-family: 'Roboto', sans-serif;
 
-    background-attachment: fixed;
     background-image: url('../images/farmback.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 
     /* remove browser default margin */
     margin: 0;
