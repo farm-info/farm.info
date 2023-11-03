@@ -2,8 +2,19 @@
 $title = 'Login as Seller';
 include "../../includes/top.php";
 ?>
+<head>
+    <style>
+        body {
+            background-image: url('../../images/farmback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+    </style>
+</head>
 
 <body>
+    
     <h3>Login as Seller</h3>
 
     <form method="post">

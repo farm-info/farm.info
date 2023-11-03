@@ -19,6 +19,13 @@ include "../../includes/top.php";
             display: inline-block;
             font-size: 15pt;
         }
+        
+        body {
+            background-image: url('../../images/farmback.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
 
         #wrapper {
             width: 900px;
