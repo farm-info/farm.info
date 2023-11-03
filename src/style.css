@@ -3,6 +3,11 @@
 body {
     font-family: 'Roboto', sans-serif;
 
+    background-attachment: fixed;
+    background-image: url('../images/farmback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
     /* remove browser default margin */
     margin: 0;
 }
@@ -88,10 +93,7 @@ footer {
 
 /* main content */
 main {
-    
-    background-image: url('../images/farmback.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: #f0f0f0;
     padding: 20px;
     max-width: 70em;
     margin: auto;

@@ -24,13 +24,6 @@ include "../includes/top.php"; ?>
             font-size: 10px;
             margin-top: auto;
         }
-
-        body {
-            background-image: url('../images/farmback.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-
-        }
     </style>
 </head>
 
@@ -93,12 +86,12 @@ include "../includes/top.php"; ?>
         }
 
         function showLogin() {
-            
+
             window.location.href = "account/login.php";
         }
 
         function showRegister() {
-            
+
             window.location.href = "account/register.php";
         }
 
