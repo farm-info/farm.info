@@ -5,7 +5,7 @@ include "../../includes/top.php";
 if ($loggedIn) {
     $query =
         "SELECT * FROM cart
-        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN item ON cart.productID = item.productID
         LEFT JOIN seller ON item.sellerID = seller.sellerID
         WHERE cart.customerID = ?";
 
