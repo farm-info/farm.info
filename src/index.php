@@ -55,6 +55,7 @@ include "../includes/top.php"; ?>
                 <!-- you know what? fuck consistency. i can't work with echos -->
                 <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
                     <input type="hidden" name="quantity" id="quantity" value="1">
+                    <input type="hidden" name="purchase-type" value="buyNow">
                     <input type="hidden" name="customerID" value="<?= $_SESSION['customerID'] ?>">
                     <input type="hidden" name="productID" value="<?= $row["productID"] ?>">
 
@@ -104,7 +105,7 @@ include "../includes/top.php"; ?>
 
         products.forEach(function (product) {
             product.addEventListener("click", function () {
-                
+
                 alert("Product clicked. Redirect to product details page.");
             });
         });

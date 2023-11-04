@@ -105,6 +105,7 @@ if (is_null($row)) {
                     <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
                         <input type="number" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
                         <br>
+                        <input type="hidden" name="purchase-type" value="buyNow">
                         <input type="hidden" name="customerID" value="<?= $customerID ?>">
                         <input type="hidden" name="productID" value="<?= $productID ?>">
 
