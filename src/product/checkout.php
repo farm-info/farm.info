@@ -8,9 +8,8 @@ if (!($loggedIn && !$loggedInAsSeller)) {
 }
 
 if ($_POST['purchase-type'] == 'from-cart') {
-    $productIDs = $_POST['productID'];
-
     // sql
+    $productIDs = $_POST['productID'];
     $questionMarks = join(',', array_fill(0, count($productIDs), '?'));
     $query =
         "SELECT productID, product_name, product_price FROM item
@@ -28,6 +27,7 @@ if ($_POST['purchase-type'] == 'from-cart') {
     }
 
 } else if ($_POST['purchase-type'] == 'buy-now') {
+    // sql
     $query =
         "SELECT product_name, product_price FROM item
         WHERE productID = ?
@@ -36,7 +36,14 @@ if ($_POST['purchase-type'] == 'from-cart') {
     $statement->bind_param("s", $_POST['productID']);
     $statement->execute();
     $result = $statement->get_result();
-    $product_quantity = 1;
+
+    // add everything into one array
+    $items = [];
+    while ($row = mysqli_fetch_array($result)) {
+        $item = $row;
+        $item['quantity'] = 1;
+        $items[] = $item;
+    }
 } else {
     header("Location: ../index.php");
     exit();
