@@ -144,14 +144,18 @@ if ($loggedIn) {
 
         function selectAllItems() {
             var table = document.getElementById("cart-table");
+            var submitButton = document.getElementById("submit-button");
+
             if (table.rows[0].cells[0].children[0].checked) {
                 for (var i = 1; i < table.rows.length; i++) {
                     table.rows[i].cells[0].children[0].checked = true;
                 }
+                submitButton.disabled = false;
             } else {
                 for (var i = 1; i < table.rows.length; i++) {
                     table.rows[i].cells[0].children[0].checked = false;
                 }
+                submitButton.disabled = true;
             }
         }
     </script>
