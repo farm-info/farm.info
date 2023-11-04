@@ -39,17 +39,18 @@ if ($loggedIn) {
         <section>
             <h2>Payment</h2>
             <form method="post" action="#">
-                <label>Select payment method</label><br>
+                <label>Payment method</label><br>
                 <select id="payment-method" name="Payment Method" required onchange="updatePaymentMethod()">
                     <option value="E-wallet">E-wallet</option>
                     <option value="Credit/Debit Card">Credit/Debit Card</option>
                     <option value="Bank Transfer">Bank Transfer</option>
-
                 </select><br>
+
                 <input type="text" name="e-wallet" id="e-wallet" style="display:none" placeholder="E Wallet">
-                <input type="text" name="credit-card" id="credit-card" style="display:none" placeholder="CC">
+                <input type="text" name="credit-card" id="credit-card" style="display:none" placeholder="Credit Card">
                 <input type="text" name="bank-number" id="bank-number" style="display:none" placeholder="Bank Number">
                 <br>
+
                 <script>
                     function updatePaymentMethod() {
                         var paymentMethod = document.getElementById("payment-method").value;
@@ -73,9 +74,9 @@ if ($loggedIn) {
                     }
                 </script>
 
-                <label>Enter a voucher or giftcard if available</label><br>
+                <label>Voucher or giftcard (if available)</label><br>
                 <input type="text" name="Voucher or giftcard"><br><br>
-                <label>Enter a discount code if available</label><br>
+                <label>Discount code (if available)</label><br>
                 <input type="text" name="Discount Code"><br><br>
 
                 <button><a href="../product/delete.php">Place Order?</a></button>
