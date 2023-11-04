@@ -5,7 +5,7 @@ include "../../includes/top.php";
 if ($loggedIn) {
     $query =
         "SELECT * FROM cart
-        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN item ON cart.productID = item.productID
         LEFT JOIN seller ON item.sellerID = seller.sellerID
         WHERE cart.customerID = ?";
 
@@ -15,14 +15,6 @@ if ($loggedIn) {
     $result = $statement->get_result();
 }
 ?>
-
-
-<script>
-    var currentPage = window.location.pathname.split('/').pop();
-    var linkToCurrentPage = document.querySelector(`[href="${currentPage}"]`);
-    linkToCurrentPage.setAttribute("class", "active");
-</script>
-
 
 <main>
     <h1>Cart</h1>
@@ -91,7 +83,7 @@ if ($loggedIn) {
         <section class="checkout">
             <span id="total-price">Total from 0 item(s): RM0.00</span>
             <?php if ($loggedIn) { ?>
-                <button type="submit">Checkout</button>
+                <button type="submit" id="submit-button" disabled>Checkout</button>
             <?php } ?>
         </section>
 
@@ -127,6 +119,7 @@ if ($loggedIn) {
         function updateSelectAllCheckbox() {
             var table = document.getElementById("cart-table");
             var selectAllCheckbox = document.getElementById("select-all");
+            var submitButton = document.getElementById("submit-button");
             let checkedCount = 0;
 
             for (var i = 1; i < table.rows.length; i++) {
@@ -138,11 +131,14 @@ if ($loggedIn) {
             if (checkedCount == 0) {
                 selectAllCheckbox.indeterminate = false;
                 selectAllCheckbox.checked = false;
+                submitButton.disabled = true;
             } else if (checkedCount == table.rows.length - 1) {
                 selectAllCheckbox.indeterminate = false;
                 selectAllCheckbox.checked = true;
+                submitButton.disabled = false;
             } else {
                 selectAllCheckbox.indeterminate = true;
+                submitButton.disabled = false;
             }
         }
 
@@ -158,8 +154,8 @@ if ($loggedIn) {
                 }
             }
         }
-
     </script>
+</main>
 
-    <?php include "../../includes/bottom.php"; ?>
+<?php include "../../includes/bottom.php"; ?>
 
