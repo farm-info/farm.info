@@ -2,33 +2,14 @@
 include '../../includes/session.php';
 include "../../includes/conn.php";
 
-$query =
-    "SELECT quantity FROM cart
-    WHERE customerID = ? AND productID = ?";
+$query = "INSERT INTO cart (customerID, productID, quantity)
+        VALUES (?, ?, ?)
+        ON DUPLICATE KEY UPDATE quantity = quantity + VALUES(quantity)";
 $statement = $con->prepare($query);
-$statement->bind_param("ss", $_POST['customerID'], $_POST['productID']);
+$statement->bind_param("ssi", $_POST['customerID'], $_POST['productID'], $_POST['quantity']);
 $statement->execute();
-$result = $statement->get_result();
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
-    // convert both to integer before adding them
-    $quantity = (int) $row['quantity'] + (int) $_POST['quantity'];
-    $query =
-        "UPDATE cart SET quantity = ?
-        WHERE customerID = ? AND productID = ?";
-    $statement = $con->prepare($query);
-    $statement->bind_param("iss", $quantity, $_POST['customerID'], $_POST['productID']);
-
-} else {
-    $query =
-        "INSERT INTO cart (customerID, productID, quantity)
-        VALUES (?, ?, ?)";
-    $statement = $con->prepare($query);
-    $statement->bind_param("ssi", $_POST['customerID'], $_POST['productID'], $_POST['quantity']);
-}
-
-if ($statement->execute()) {
+if ($statement->affected_rows > 0) {
     echo "<script>alert('Added to cart!');window.location.href='cart.php';</script>";
 } else {
     die("Error: " . mysqli_error($con));

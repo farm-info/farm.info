@@ -28,7 +28,12 @@ $image_result = $statement->get_result();
 if (is_null($row)) {
     echo "Product not found. Contact us if you think this is an error.";
 
-} else { ?>
+} else {
+    $query = "UPDATE item SET product_views = product_views + 1 WHERE productID = ?";
+    $statement = $con->prepare($query);
+    $statement->bind_param("s", $productID);
+    $statement->execute(); ?>
+
     <main class="two-column-layout">
 
         <?php if (mysqli_num_rows($image_result) == 0) {

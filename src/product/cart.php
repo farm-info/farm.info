@@ -5,7 +5,7 @@ include "../../includes/top.php";
 if ($loggedIn) {
     $query =
         "SELECT * FROM cart
-        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN item ON cart.productID = item.productID
         LEFT JOIN seller ON item.sellerID = seller.sellerID
         WHERE cart.customerID = ?";
 
@@ -15,14 +15,6 @@ if ($loggedIn) {
     $result = $statement->get_result();
 }
 ?>
-
-
-<script>
-    var currentPage = window.location.pathname.split('/').pop();
-    var linkToCurrentPage = document.querySelector(`[href="${currentPage}"]`);
-    linkToCurrentPage.setAttribute("class", "active");
-</script>
-
 
 <main>
     <h1>Cart</h1>
@@ -158,8 +150,8 @@ if ($loggedIn) {
                 }
             }
         }
-
     </script>
+</main>
 
-    <?php include "../../includes/bottom.php"; ?>
+<?php include "../../includes/bottom.php"; ?>
 
