@@ -18,6 +18,7 @@ if ($_POST['purchase-type'] == 'from-cart') {
     $statement->bind_param("s", $_POST['productID']);
     $statement->execute();
     $result = $statement->get_result();
+    $product_quantity = 1;
 } else {
     header("Location: ../index.php");
     exit();
@@ -53,6 +54,7 @@ $total = 0;
                 <thead>
                     <tr>
                         <th style='text-align: left;'>Product</th>
+                        <th style='text-align: left;'>Quantity</th>
                         <th style='text-align: right;'>Price</th>
                     </tr>
                 </thead>
@@ -63,10 +65,12 @@ $total = 0;
                             <td style='text-align: left;'>
                                 <?= $item['product_name'] ?>
                             </td>
+                            <td style='text-align: left;'>
+                                <?= $product_quantity ?>
+                            </td>
                             <td style='text-align: right;'>RM
                                 <?= number_format($item['product_price'], 2); ?>
-                                <?php $total += $item['product_price'] ?>
-                                <?php // $total += $item['product_price'] * $item['quantity'] ?>
+                                <?php $total += $item['product_price'] * $product_quantity ?>
                             </td>
                         </tr>
                     <?php } ?>
@@ -75,6 +79,7 @@ $total = 0;
                         <td style='text-align: left;'>
                             <b>Total</b>
                         </td>
+                        <td style='text-align: left;'></td>
                         <td style='text-align: right;'>
                             <b>RM
                                 <?= number_format($total, 2); ?>
