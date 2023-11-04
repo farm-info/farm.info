@@ -84,7 +84,7 @@ function paymentMethod(){
                 <input type= "text" name="Discount Code" ><br><br>
 
 
-        <button>Place Order</button>
+                <button><a href="../index">Place Order?</a></button>
     </form>
     </div>
 </body>
