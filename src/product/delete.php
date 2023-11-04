@@ -1,5 +1,5 @@
 <?php
-include "../../includes/conn.php"; 
+include "../../includes/conn.php";
 
 // Check if the required parameters are set
 if (isset($_GET['customerID']) && isset($_GET['productID']) && isset($_GET['quantity']) && isset($_GET['total_price'])) {
@@ -12,7 +12,7 @@ if (isset($_GET['customerID']) && isset($_GET['productID']) && isset($_GET['quan
     $stmt = mysqli_prepare($con, $sql);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "iii", $customerID, $productID, $quantity, $total_price); 
+        mysqli_stmt_bind_param($stmt, "iii", $customerID, $productID, $quantity, $total_price);
 
         if (mysqli_stmt_execute($stmt)) {
             echo "Item deleted successfully from the cart.";
@@ -29,3 +29,4 @@ if (isset($_GET['customerID']) && isset($_GET['productID']) && isset($_GET['quan
     echo "<script>alert('Please provide customerID, productID, and quantity for item deletion.');window.location.href='../index.php';</script>";
 }
 ?>
+
