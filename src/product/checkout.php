@@ -53,7 +53,7 @@ if ($loggedIn) {
         </section>
 
         <section>
-            <h1> Payment </h1>
+            <h2> Payment </h2>
             <form method="post" action="#">
                 <label>Select payment method</label><br>
                 <select id="payment-method" name="Payment Method" required onchange="updatePaymentMethod()">
