@@ -104,7 +104,7 @@ if ($loggedIn) {
                     <input type="text" name="Discount Code"><br><br>
 
 
-                    <button><a href="../index">Place Order?</a></button>
+                    <button><a href="../product/delete.php">Place Order?</a></button>
                 </form>
         </div>
 </body>

@@ -11,7 +11,7 @@ include("../includes/top.php"); ?>
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/Group Assignment/female.png" alt="Jane" style="width:100%">
+      <img src="/farm.info/images/female.jpg" alt="Jane" style="width:11%">
       <div class="container">
         <h2>Jane Doe</h2>
         <p class="title">CEO & Founder</p>
@@ -24,7 +24,7 @@ include("../includes/top.php"); ?>
 
   <div class="column">
     <div class="card">
-      <img src="/Group Assignment/male.png" alt="Mike" style="width:100%">
+      <img src="/farm.info/images/male.jpg" alt="Mike" style="width:10%">
       <div class="container">
         <h2>Mike Ross</h2>
         <p class="title">Art Director</p>
@@ -37,7 +37,7 @@ include("../includes/top.php"); ?>
 
   <div class="column">
     <div class="card">
-      <img src="/Group Assignment/male.png" alt="John" style="width:100%">
+      <img src="/farm.info/images/male.jpg" alt="John" style="width:10%">
       <div class="container">
         <h2>John Doe</h2>
         <p class="title">Designer</p>
