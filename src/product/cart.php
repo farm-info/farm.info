@@ -158,8 +158,8 @@ if ($loggedIn) {
                 }
             }
         }
-
     </script>
+</main>
 
-    <?php include "../../includes/bottom.php"; ?>
+<?php include "../../includes/bottom.php"; ?>
 
