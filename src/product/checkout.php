@@ -1,5 +1,5 @@
 <?php
-$title = 'Cart';
+$title = 'Checkout';
 include "../../includes/top.php";
 
 if ($loggedIn) {
@@ -16,9 +16,6 @@ if ($loggedIn) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <style>
         .top-right {
@@ -33,13 +30,9 @@ if ($loggedIn) {
             background-repeat: no-repeat;
         }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
 
 <body>
-
     <h1> Checkout </h1>
     <h2> Input customer details </h2>
     <form method="post" action="#">
@@ -103,10 +96,7 @@ if ($loggedIn) {
                     <label>Enter a discount code if available</label><br>
                     <input type="text" name="Discount Code"><br><br>
 
-
                     <button><a href="../product/delete.php">Place Order?</a></button>
                 </form>
         </div>
 </body>
-
-</html>
