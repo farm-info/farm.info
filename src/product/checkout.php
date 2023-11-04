@@ -55,70 +55,70 @@ $total = 0;
 
 <main>
     <h1 style="margin-left: 2%; margin-right: 2%;">Checkout</h1>
-    <div class="two-column-layout">
-        <section>
-            <h2>Customer details</h2>
-            <form method="post" action="#">
-                <label>Name</label><br>
-                <input type="text" name="customer name" required><br><br>
-                <label>Email Address</label><br>
-                <input type="text" name="Email Address" required><br><br>
-                <label>Country</label><br>
-                <input type="text" name="Country" required><br><br>
-                <label>State</label><br>
-                <input type="text" name="state" required><br><br>
-                <label>City or town</label><br>
-                <input type="text" name="City or Town" required><br><br>
-                <label>Address</label><br>
-                <input type="text" name="Address" requried><br><br>
-        </section>
+    <form method="post" action="delete.php">
+        <div class="two-column-layout">
+            <section>
+                <h2>Customer details</h2>
+                <form method="post" action="#">
+                    <label>Name</label><br>
+                    <input type="text" name="customer-name" required><br><br>
+                    <label>Email Address</label><br>
+                    <input type="text" name="email-address" required><br><br>
+                    <label>Country</label><br>
+                    <input type="text" name="country" required><br><br>
+                    <label>State</label><br>
+                    <input type="text" name="state" required><br><br>
+                    <label>City or town</label><br>
+                    <input type="text" name="city" required><br><br>
+                    <label>Address</label><br>
+                    <input type="text" name="address" requried><br><br>
+            </section>
 
-        <section>
-            <h2>Invoice</h2>
-            <table style=''>
-                <thead>
-                    <tr>
-                        <th style='text-align: left;'>Product</th>
-                        <th style='text-align: left;'>Quantity</th>
-                        <th style='text-align: right;'>Price</th>
-                    </tr>
-                </thead>
+            <section>
+                <h2>Invoice</h2>
+                <table style=''>
+                    <thead>
+                        <tr>
+                            <th style='text-align: left;'>Product</th>
+                            <th style='text-align: left;'>Quantity</th>
+                            <th style='text-align: right;'>Price</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <?php foreach ($items as $item) { ?>
+                    <tbody>
+                        <?php foreach ($items as $item) { ?>
+                            <tr>
+                                <td style='text-align: left;'>
+                                    <?= $item['product_name'] ?>
+                                </td>
+                                <td style='text-align: left;'>
+                                    <?= $item['quantity'] ?>
+                                </td>
+                                <td style='text-align: right;'>RM
+                                    <?= number_format($item['product_price'], 2); ?>
+                                    <?php $total += $item['product_price'] * $item['quantity'] ?>
+                                </td>
+                            </tr>
+                        <?php } ?>
+
                         <tr>
                             <td style='text-align: left;'>
-                                <?= $item['product_name'] ?>
+                                <b>Total</b>
                             </td>
-                            <td style='text-align: left;'>
-                                <?= $item['quantity'] ?>
-                            </td>
-                            <td style='text-align: right;'>RM
-                                <?= number_format($item['product_price'], 2); ?>
-                                <?php $total += $item['product_price'] * $item['quantity'] ?>
+                            <td style='text-align: left;'></td>
+                            <td style='text-align: right;'>
+                                <b>RM
+                                    <?= number_format($total, 2); ?>
+                                </b>
                             </td>
                         </tr>
-                    <?php } ?>
+                    </tbody>
 
-                    <tr>
-                        <td style='text-align: left;'>
-                            <b>Total</b>
-                        </td>
-                        <td style='text-align: left;'></td>
-                        <td style='text-align: right;'>
-                            <b>RM
-                                <?= number_format($total, 2); ?>
-                            </b>
-                        </td>
-                    </tr>
-                </tbody>
+                </table>
+            </section>
 
-            </table>
-        </section>
-
-        <section>
-            <h2>Payment</h2>
-            <form method="post" action="#">
+            <section>
+                <h2>Payment</h2>
                 <label>Payment method</label><br>
                 <select id="payment-method" name="Payment Method" required onchange="updatePaymentMethod()">
                     <option value="E-wallet">E-wallet</option>
@@ -155,12 +155,12 @@ $total = 0;
                 </script>
 
                 <label>Voucher or giftcard (if available)</label><br>
-                <input type="text" name="Voucher or giftcard"><br><br>
+                <input type="text" name="voucher"><br><br>
                 <label>Discount code (if available)</label><br>
-                <input type="text" name="Discount Code"><br><br>
+                <input type="text" name="discount-code"><br><br>
 
-                <button><a href="../product/delete.php">Place Order?</a></button>
-            </form>
-        </section>
-    </div>
+                <button type="submit">Place Order Now</button>
+            </section>
+        </div>
+    </form>
 </main>
