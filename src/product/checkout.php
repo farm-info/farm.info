@@ -8,6 +8,24 @@ if (!($loggedIn && !$loggedInAsSeller)) {
 }
 
 if ($_POST['purchase-type'] == 'from-cart') {
+    $productIDs = $_POST['productID'];
+
+    // sql
+    $questionMarks = join(',', array_fill(0, count($productIDs), '?'));
+    $query =
+        "SELECT productID, product_name, product_price FROM item
+        WHERE productID IN ($questionMarks)";
+    $statement = $con->prepare($query);
+    $statement->execute($productIDs);
+    $result = $statement->get_result();
+
+    // add everything into one array
+    $items = [];
+    while ($row = mysqli_fetch_array($result)) {
+        $item = $row;
+        $item['quantity'] = $_POST['quantity'][$row['productID']];
+        $items[] = $item;
+    }
 
 } else if ($_POST['purchase-type'] == 'buy-now') {
     $query =
@@ -60,17 +78,17 @@ $total = 0;
                 </thead>
 
                 <tbody>
-                    <?php while ($item = mysqli_fetch_array($result)) { ?>
+                    <?php foreach ($items as $item) { ?>
                         <tr>
                             <td style='text-align: left;'>
                                 <?= $item['product_name'] ?>
                             </td>
                             <td style='text-align: left;'>
-                                <?= $product_quantity ?>
+                                <?= $item['quantity'] ?>
                             </td>
                             <td style='text-align: right;'>RM
                                 <?= number_format($item['product_price'], 2); ?>
-                                <?php $total += $item['product_price'] * $product_quantity ?>
+                                <?php $total += $item['product_price'] * $item['quantity'] ?>
                             </td>
                         </tr>
                     <?php } ?>
