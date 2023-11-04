@@ -16,14 +16,6 @@ if ($loggedIn) {
 }
 ?>
 
-
-<script>
-    var currentPage = window.location.pathname.split('/').pop();
-    var linkToCurrentPage = document.querySelector(`[href="${currentPage}"]`);
-    linkToCurrentPage.setAttribute("class", "active");
-</script>
-
-
 <main>
     <h1>Cart</h1>
 
