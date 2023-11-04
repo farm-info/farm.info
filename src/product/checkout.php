@@ -2,22 +2,33 @@
 $title = 'Checkout';
 include "../../includes/top.php";
 
-if ($loggedIn) {
-    $query =
-        "SELECT * FROM cart
-        LEFT JOIN item ON cart.productID = cart.productID
-        LEFT JOIN seller ON item.sellerID = seller.sellerID
-        WHERE cart.customerID = ?";
+if (!($loggedIn && !$loggedInAsSeller)) {
+    header("Location: ../account/login.php");
+    exit();
+}
 
+if ($_POST['purchase-type'] == 'from-cart') {
+
+} else if ($_POST['purchase-type'] == 'buy-now') {
+    $query =
+        "SELECT product_name, product_price FROM item
+        WHERE productID = ?
+        LIMIT 1";
     $statement = $con->prepare($query);
-    $statement->bind_param("s", $_SESSION['customerID']);
+    $statement->bind_param("s", $_POST['productID']);
     $statement->execute();
     $result = $statement->get_result();
+} else {
+    header("Location: ../index.php");
+    exit();
 }
+
+$total = 0;
 ?>
 
+
 <main>
-    <h1 style="margin: 2%;">Checkout</h1>
+    <h1 style="margin-left: 2%; margin-right: 2%;">Checkout</h1>
     <div class="two-column-layout">
         <section>
             <h2>Customer details</h2>
@@ -34,6 +45,45 @@ if ($loggedIn) {
                 <input type="text" name="City or Town" required><br><br>
                 <label>Address</label><br>
                 <input type="text" name="Address" requried><br><br>
+        </section>
+
+        <section>
+            <h2>Invoice</h2>
+            <table style=''>
+                <thead>
+                    <tr>
+                        <th style='text-align: left;'>Product</th>
+                        <th style='text-align: right;'>Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php while ($item = mysqli_fetch_array($result)) { ?>
+                        <tr>
+                            <td style='text-align: left;'>
+                                <?= $item['product_name'] ?>
+                            </td>
+                            <td style='text-align: right;'>RM
+                                <?= number_format($item['product_price'], 2); ?>
+                                <?php $total += $item['product_price'] ?>
+                                <?php // $total += $item['product_price'] * $item['quantity'] ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+
+                    <tr>
+                        <td style='text-align: left;'>
+                            <b>Total</b>
+                        </td>
+                        <td style='text-align: right;'>
+                            <b>RM
+                                <?= number_format($total, 2); ?>
+                            </b>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
         </section>
 
         <section>
