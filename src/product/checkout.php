@@ -61,35 +61,35 @@ if ($loggedIn) {
                 <h1> Payment </h1>
                 <form method="post" action="#">
                     <label>Select payment method</label><br>
-                    <select id="pm" name="Payment Method" required onchange="paymentMethod()">
+                    <select id="payment-method" name="Payment Method" required onchange="updatePaymentMethod()">
                         <option value="E-wallet">E-wallet</option>
                         <option value="Credit/Debit Card">Credit/Debit Card</option>
                         <option value="Bank Transfer">Bank Transfer</option>
 
                     </select><br>
-                    <input type="text" name="ew" id="ew" style="display:none" placeholder="E Wallet">
-                    <input type="text" name="cc" id="cc" style="display:none" placeholder="CC">
-                    <input type="text" name="bt" id="bt" style="display:none" placeholder="Bank Number">
+                    <input type="text" name="e-wallet" id="e-wallet" style="display:none" placeholder="E Wallet">
+                    <input type="text" name="credit-card" id="credit-card" style="display:none" placeholder="CC">
+                    <input type="text" name="bank-number" id="bank-number" style="display:none" placeholder="Bank Number">
                     <br>
                     <script>
-                        function paymentMethod() {
-                            var x = document.getElementById("pm").value;
+                        function updatePaymentMethod() {
+                            var paymentMethod = document.getElementById("payment-method").value;
 
-                            if (x == 'E-wallet') {
-                                document.getElementById('ew').style.display = 'block';
-                                document.getElementById('cc').style.display = 'none';
-                                document.getElementById('bt').style.display = 'none';
+                            if (paymentMethod == 'E-wallet') {
+                                document.getElementById('e-wallet').style.display = 'block';
+                                document.getElementById('credit-card').style.display = 'none';
+                                document.getElementById('bank-number').style.display = 'none';
                             }
-                            if (x == 'Credit/Debit Card') {
-                                document.getElementById('cc').style.display = 'block';
-                                document.getElementById('ew').style.display = 'none';
-                                document.getElementById('bt').style.display = 'none';
+                            if (paymentMethod == 'Credit/Debit Card') {
+                                document.getElementById('credit-card').style.display = 'block';
+                                document.getElementById('e-wallet').style.display = 'none';
+                                document.getElementById('bank-number').style.display = 'none';
                             }
 
-                            if (x == 'Bank Transfer') {
-                                document.getElementById('bt').style.display = 'block';
-                                document.getElementById('cc').style.display = 'none';
-                                document.getElementById('ew').style.display = 'none';
+                            if (paymentMethod == 'Bank Transfer') {
+                                document.getElementById('bank-number').style.display = 'block';
+                                document.getElementById('credit-card').style.display = 'none';
+                                document.getElementById('e-wallet').style.display = 'none';
                             }
                         }
                     </script>
