@@ -23,7 +23,7 @@ if ($loggedIn) {
         <table id="cart-table" onchange="calculateSum()">
             <thead>
                 <tr>
-                    <th><input type="checkbox" name="select-all" id="select-all" onchange="selectAllItems()"> </th>
+                    <th><input type="checkbox" id="select-all" onchange="selectAllItems()"> </th>
                     <th colspan="2">Product info</th>
                     <th>Price</th>
                     <th>Seller</th>
@@ -68,6 +68,7 @@ if ($loggedIn) {
 
                             <td>
                                 <?= $row['quantity']; ?>
+                                <input type="hidden" name="quantity[<?= $row['productID'] ?>]" value="<?= $row['quantity'] ?>">
                             </td>
 
                             <td>
