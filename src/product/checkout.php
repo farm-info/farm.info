@@ -53,12 +53,6 @@ if ($loggedIn) {
         </section>
 
         <section>
-            <h1> Item details </h1>
-            <form method="post" action="#">
-                <label>Quantity of product</label><br>
-                <input type="number" name="quantity of product" required><br><br>
-            </form>
-
             <h1> Payment </h1>
             <form method="post" action="#">
                 <label>Select payment method</label><br>
