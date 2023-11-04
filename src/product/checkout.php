@@ -1,3 +1,21 @@
+<?php
+$title = 'Cart';
+include "../../includes/top.php";
+
+if ($loggedIn) {
+    $query =
+        "SELECT * FROM cart
+        LEFT JOIN item ON cart.productID = cart.productID
+        LEFT JOIN seller ON item.sellerID = seller.sellerID
+        WHERE cart.customerID = ?";
+
+    $statement = $con->prepare($query);
+    $statement->bind_param("s", $_SESSION['customerID']);
+    $statement->execute();
+    $result = $statement->get_result();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
