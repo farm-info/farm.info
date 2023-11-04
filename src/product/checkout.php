@@ -16,27 +16,11 @@ if ($loggedIn) {
 }
 ?>
 
-<head>
-    <style>
-        .top-right {
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-        body {
-            background-image: url('thefield.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-    </style>
-</head>
-
 <main>
-    <h1 style="margin: 2%;"> Checkout </h1>
+    <h1 style="margin: 2%;">Checkout</h1>
     <div class="two-column-layout">
         <section>
-            <h2> Input customer details </h2>
+            <h2>Customer details</h2>
             <form method="post" action="#">
                 <label>Name</label><br>
                 <input type="text" name="customer name" required><br><br>
@@ -53,7 +37,7 @@ if ($loggedIn) {
         </section>
 
         <section>
-            <h2> Payment </h2>
+            <h2>Payment</h2>
             <form method="post" action="#">
                 <label>Select payment method</label><br>
                 <select id="payment-method" name="Payment Method" required onchange="updatePaymentMethod()">
