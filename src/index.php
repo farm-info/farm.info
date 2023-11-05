@@ -54,7 +54,7 @@ include "../includes/top.php"; ?>
         } else if ($loggedIn) { ?>
                 <!-- you know what? fuck consistency. i can't work with echos -->
                 <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                    <input type="hidden" name="quantity" id="quantity" value="1">
+                    <input type="hidden" name="quantity[<?= $row['productID'] ?>]" id="quantity" value="1">
                     <input type="hidden" name="customerID" value="<?= $_SESSION['customerID'] ?>">
                     <input type="hidden" name="productID[]" value="<?= $row["productID"] ?>">
 
