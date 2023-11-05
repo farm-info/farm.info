@@ -7,48 +7,24 @@ if (!($loggedIn && !$loggedInAsSeller)) {
     exit();
 }
 
-if ($_POST['purchase-type'] == 'from-cart') {
-    // sql
-    $productIDs = $_POST['productID'];
-    $questionMarks = join(',', array_fill(0, count($productIDs), '?'));
-    $query =
-        "SELECT productID, product_name, product_price FROM item
-        WHERE productID IN ($questionMarks)";
-    $statement = $con->prepare($query);
-    $statement->execute($productIDs);
-    $result = $statement->get_result();
+// sql
+$productIDs = $_POST['productID'];
+$questionMarks = join(',', array_fill(0, count($productIDs), '?'));
+$query =
+    "SELECT productID, product_name, product_price FROM item
+    WHERE productID IN ($questionMarks)";
+$statement = $con->prepare($query);
+$statement->execute($productIDs);
+$result = $statement->get_result();
 
-    // add everything into one array
-    $checkout_items = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $item = $row;
-        $item['quantity'] = $_POST['quantity'][$row['productID']];
-        $checkout_items[] = $item;
-    }
-
-} else if ($_POST['purchase-type'] == 'buy-now') {
-    // sql
-    $query =
-        "SELECT productID, product_name, product_price FROM item
-        WHERE productID = ?
-        LIMIT 1";
-    $statement = $con->prepare($query);
-    $statement->bind_param("s", $_POST['productID']);
-    $statement->execute();
-    $result = $statement->get_result();
-
-    // add everything into one array
-    $checkout_items = [];
-    while ($row = mysqli_fetch_array($result)) {
-        $item = $row;
-        $item['quantity'] = 1;
-        $checkout_items[] = $item;
-    }
-
-} else {
-    header("Location: ../index.php");
-    exit();
+// add everything into one array
+$checkout_items = [];
+while ($row = mysqli_fetch_array($result)) {
+    $item = $row;
+    $item['quantity'] = $_POST['quantity'][$row['productID']];
+    $checkout_items[] = $item;
 }
+
 
 $_SESSION['checkout_items'] = $checkout_items;
 $total = 0;
