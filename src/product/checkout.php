@@ -71,7 +71,7 @@ $total = 0;
                     <label>City or town</label><br>
                     <input type="text" name="city" required><br><br>
                     <label>Address</label><br>
-                    <input type="text" name="address" requried><br><br>
+                    <input type="text" name="address" required><br><br>
             </section>
 
             <section>
