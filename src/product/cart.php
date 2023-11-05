@@ -85,6 +85,7 @@ if ($loggedIn) {
         <section class="checkout">
             <span id="total-price">Total from 0 item(s): RM0.00</span>
             <?php if ($loggedIn) { ?>
+                <input type="hidden" name="purchase-type" value="from-cart">
                 <button type="submit" id="submit-button" disabled>Checkout</button>
             <?php } ?>
         </section>
