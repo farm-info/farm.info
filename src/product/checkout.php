@@ -137,7 +137,7 @@ $total = 0;
                 <label>Discount code (if available)</label><br>
                 <input type="text" name="discount-code"><br><br>
 
-                <input type="hidden" name="purchase-type" value="<?= $_POST['purchase-type'] ?>">
+                <input type="hidden" name="purchase-type" value="<?= $_POST['purchase-type'] ?? '' ?>">
                 <button type="submit">Place Order Now</button>
             </section>
         </div>
