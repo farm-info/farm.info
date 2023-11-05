@@ -19,17 +19,17 @@ if ($_POST['purchase-type'] == 'from-cart') {
     $result = $statement->get_result();
 
     // add everything into one array
-    $items = [];
+    $checkout_items = [];
     while ($row = mysqli_fetch_array($result)) {
         $item = $row;
         $item['quantity'] = $_POST['quantity'][$row['productID']];
-        $items[] = $item;
+        $checkout_items[] = $item;
     }
 
 } else if ($_POST['purchase-type'] == 'buy-now') {
     // sql
     $query =
-        "SELECT product_name, product_price FROM item
+        "SELECT productID, product_name, product_price FROM item
         WHERE productID = ?
         LIMIT 1";
     $statement = $con->prepare($query);
@@ -38,17 +38,19 @@ if ($_POST['purchase-type'] == 'from-cart') {
     $result = $statement->get_result();
 
     // add everything into one array
-    $items = [];
+    $checkout_items = [];
     while ($row = mysqli_fetch_array($result)) {
         $item = $row;
         $item['quantity'] = 1;
-        $items[] = $item;
+        $checkout_items[] = $item;
     }
+
 } else {
     header("Location: ../index.php");
     exit();
 }
 
+$_SESSION['checkout_items'] = $checkout_items;
 $total = 0;
 ?>
 
@@ -86,7 +88,7 @@ $total = 0;
                     </thead>
 
                     <tbody>
-                        <?php foreach ($items as $item) { ?>
+                        <?php foreach ($checkout_items as $item) { ?>
                             <tr>
                                 <td style='text-align: left;'>
                                     <?= $item['product_name'] ?>
@@ -159,6 +161,7 @@ $total = 0;
                 <label>Discount code (if available)</label><br>
                 <input type="text" name="discount-code"><br><br>
 
+                <input type="hidden" name="purchase-type" value="<?= $_POST['purchase-type'] ?>">
                 <button type="submit">Place Order Now</button>
             </section>
         </div>
