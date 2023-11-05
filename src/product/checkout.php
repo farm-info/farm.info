@@ -126,7 +126,7 @@ $total = 0;
                     <option value="Bank Transfer">Bank Transfer</option>
                 </select><br>
 
-                <input type="text" name="e-wallet" id="e-wallet" style="display:none" placeholder="E Wallet">
+                <input type="text" name="e-wallet" id="e-wallet" style="display:block" placeholder="E Wallet">
                 <input type="text" name="credit-card" id="credit-card" style="display:none" placeholder="Credit Card">
                 <input type="text" name="bank-number" id="bank-number" style="display:none" placeholder="Bank Number">
                 <br>
