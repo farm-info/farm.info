@@ -103,11 +103,11 @@ if (is_null($row)) {
             <?php } else if ($loggedIn) {
                 $customerID = $_SESSION['customerID']; ?>
                     <form action="add_to_cart.php" method="post" style="white-space: nowrap; display: inline-block;">
-                        <input type="number" name="quantity" id="quantity" value="1" min="1" max="<?= $row["stock_quantity"] ?>">
+                        <input type="number" name="quantity[<?= $row['productID'] ?>]" id="quantity" value="1" min="1"
+                            max="<?= $row["stock_quantity"] ?>">
                         <br>
-                        <input type="hidden" name="purchase-type" value="buy-now">
                         <input type="hidden" name="customerID" value="<?= $customerID ?>">
-                        <input type="hidden" name="productID" value="<?= $productID ?>">
+                        <input type="hidden" name="productID[]" value="<?= $productID ?>">
 
                         <input type="submit" name="buy_now" formaction="checkout.php" value="Buy now">
                         <input type="submit" name="add_to_cart" formaction="add_to_cart.php" value="Add to cart">
