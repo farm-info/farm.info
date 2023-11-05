@@ -55,7 +55,7 @@ $total = 0;
 
 <main>
     <h1 style="margin-left: 2%; margin-right: 2%;">Checkout</h1>
-    <form method="post" action="delete.php">
+    <form method="post" action="place_order.php">
         <div class="two-column-layout">
             <section>
                 <h2>Customer details</h2>
